@@ -30,10 +30,10 @@ const AboutPage = () => {
         </Flex>
       </Flex>
       <Flex className="py-6 heading-md border-neutral-200 border-t-1 border-b-1 text-center items-center justify-center">
-        {'&quot;Actually Gives a S***'}
+        {'Actually Gives a S***'}
         <Star width={24} height={24} className="text-green-500" />
         <Star width={24} height={24} className="text-green-500" /> 
-        {'&quot;The Chuck Norris of Recruitment&quot;'}
+        {'The Chuck Norris of Recruitment'}
         <Star width={24} height={24} className="text-green-500" />
         <Star width={24} height={24} className="text-green-500" />
       </Flex>
