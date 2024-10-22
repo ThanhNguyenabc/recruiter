@@ -1,7 +1,7 @@
 "use client";
 
 import { BreakPoints } from "@/utils/constants";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const getBreakPoint = (width: number) => {
   if (width < BreakPoints.MOBILE) return BreakPoints.MOBILE;

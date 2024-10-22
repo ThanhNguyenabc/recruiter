@@ -4,7 +4,6 @@ import Flex from "@/components/_common/flex";
 import Text from "@/components/_common/text";
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
-import Testimonials from "@/components/testmonials";
 import JobsIndustry from "@/components/jobindustry";
 import { useRouter } from "next/navigation";
 import ContactForm from "@/components/contact/contact-form";

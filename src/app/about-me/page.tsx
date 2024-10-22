@@ -2,7 +2,6 @@ import { Star } from "@/assets/icons";
 import { Banner2Img } from "@/assets/images";
 import Flex from "@/components/_common/flex";
 import Text from "@/components/_common/text";
-import { Divider } from "@nextui-org/react";
 import Image from "next/image";
 import React from "react";
 
@@ -31,10 +30,10 @@ const AboutPage = () => {
         </Flex>
       </Flex>
       <Flex className="py-6 heading-md border-neutral-200 border-t-1 border-b-1 text-center items-center justify-center">
-        "Actually Gives a S***"{" "}
+        {'&quot;Actually Gives a S***'}
         <Star width={24} height={24} className="text-green-500" />
-        <Star width={24} height={24} className="text-green-500" /> "The Chuck
-        Norris of Recruitment"{" "}
+        <Star width={24} height={24} className="text-green-500" /> 
+        {'&quot;The Chuck Norris of Recruitment&quot;'}
         <Star width={24} height={24} className="text-green-500" />
         <Star width={24} height={24} className="text-green-500" />
       </Flex>

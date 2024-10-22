@@ -55,8 +55,8 @@ const RatingItem = ({
       <Flex className="gap-3">
         {Array(rate)
           .fill(0)
-          .map((item) => (
-            <Star width={24} height={24} className="text-green-500" />
+          .map((index) => (
+            <Star key={index} width={24} height={24} className="text-green-500" />
           ))}
       </Flex>
       <Text>{review}</Text>

@@ -3,16 +3,13 @@
 import React, { useEffect, useState } from "react";
 import Flex from "../_common/flex";
 import Image from "next/image";
-import { BreakPoints, Menu } from "@/utils/constants";
+import { Menu } from "@/utils/constants";
 import { Button, cn, Link } from "@nextui-org/react";
 import { LogoImg } from "@/assets/images";
 import Container from "../_common/container";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import { CloseIcon, MenuIcon } from "@/assets/icons";
 
 const Header = () => {
-  const { width, height, breakPoint } = useMediaQuery();
-
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
