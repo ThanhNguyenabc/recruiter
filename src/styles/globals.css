@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FEFEFE;
+  --foreground: #171717;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .heading-xl {
+    @apply text-6xl font-semibold
+   }
+ 
+  .heading-lg {
+   @apply text-5xl font-semibold
+  }
+
+  .heading-md {
+    
+   @apply text-3xl font-semibold
+  }
+}
