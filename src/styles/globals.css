@@ -21,7 +21,7 @@ body {
 
 @layer utilities {
   .heading-xl {
-    @apply text-6xl font-semibold
+    @apply text-6xl font-bold
    }
  
   .heading-lg {
@@ -29,7 +29,12 @@ body {
   }
 
   .heading-md {
-    
    @apply text-3xl font-semibold
   }
+
+  .text-large {
+    @apply text-lg font-semibold
+  }
+
+  
 }

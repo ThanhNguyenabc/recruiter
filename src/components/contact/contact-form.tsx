@@ -64,7 +64,12 @@ const ContactForm = ({ children }: PropsWithChildren) => {
             </Flex>
           </>
         )}
-        <Button size="lg" type="submit" color="primary">
+        <Button
+          size="lg"
+          type="submit"
+          color="primary"
+          className=" text-white font-semibold"
+        >
           Submit
         </Button>
       </form>

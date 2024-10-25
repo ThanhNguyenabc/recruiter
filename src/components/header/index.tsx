@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Flex from "../_common/flex";
 import Image from "next/image";
-import { Menu } from "@/utils/constants";
+import { Menu, Socials } from "@/utils/constants";
 import { Button, cn, Link } from "@nextui-org/react";
 import { LogoImg } from "@/assets/images";
 import Container from "../_common/container";
@@ -21,49 +21,58 @@ const Header = () => {
   }, [showMenu]);
 
   return (
-    <Container className="flex relative gap-5 items-center  lg:gap-8">
-      <Button
-        onClick={() => setShowMenu(!showMenu)}
-        className=" lg:hidden bg-transparent border-none"
-        variant="ghost"
-      >
-        {showMenu ? (
-          <CloseIcon width={40} height={40} />
-        ) : (
-          <MenuIcon width={40} height={40} className=" text-black" />
-        )}
-      </Button>
+    <div className=" bg-[#181010]">
+      <Container className="flex relative gap-5 items-center top-0 z-10 lg:gap-8">
+        <Button
+          onClick={() => setShowMenu(!showMenu)}
+          className=" lg:hidden bg-transparent border-none"
+          variant="ghost"
+        >
+          {showMenu ? (
+            <CloseIcon width={40} height={40} className=" text-white" />
+          ) : (
+            <MenuIcon width={40} height={40} className=" text-white" />
+          )}
+        </Button>
 
-      <Link href="/">
-        <Image
-          src={LogoImg}
-          width={200}
-          height={200}
-          className="h-auto cursor-pointer"
-          alt="logo"
-        />
-      </Link>
+        <Link href="/">
+          <Image
+            src={LogoImg}
+            width={200}
+            height={200}
+            className="h-auto cursor-pointer"
+            alt="logo"
+          />
+        </Link>
 
-      <Flex
-        className={cn(
-          ` flex-col w-full gap-4 h-screen absolute top-full -left-full p-4 z-[999] transition-all ease-in border-b-2`,
-          " md:gap-8  lg:flex-row lg:gap-10 lg:relative lg:left-0 lg:top-0 lg:bg-none lg:h-fit lg:bg-transparent",
-          showMenu && " left-0  bg-white"
-        )}
-      >
-        {Menu.map((item) => {
-          return (
-            <Link
-              key={`${item.title}`}
-              href={item.url}
-              className="text-black font-semibold p-5 hover:text-primary"
-            >
-              {item.title}
-            </Link>
-          );
-        })}
-      </Flex>
-    </Container>
+        <Flex
+          className={cn(
+            ` flex-col w-full gap-4 h-screen absolute top-full -left-full p-4 z-[999] transition-all ease-in`,
+            " md:gap-8  lg:flex-row lg:gap-20 lg:relative lg:left-0 lg:top-0 lg:bg-none lg:h-fit lg:bg-transparent",
+            showMenu && " left-0 bg-[#181010]"
+          )}
+        >
+          {Menu.map((item) => {
+            return (
+              <Link
+                key={`${item.title}`}
+                href={item.url}
+                className="text-[#efefef] font-semibold p-5 hover:text-primary"
+              >
+                {item.title}
+              </Link>
+            );
+          })}
+          <Flex className="ml-4 gap-4 md:ml-10 md:gap-8">
+            {Socials.map(({ icon: Icon, link }) => (
+              <Link key={link} href={link}>
+                <Icon />
+              </Link>
+            ))}
+          </Flex>
+        </Flex>
+      </Container>
+    </div>
   );
 };
 

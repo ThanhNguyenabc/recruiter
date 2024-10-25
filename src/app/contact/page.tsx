@@ -6,6 +6,7 @@ import ContactForm from "@/components/contact/contact-form";
 import { EMAIL, PHONE } from "@/utils/constants";
 import { EmailIcon, PhoneIcon } from "@/assets/icons";
 import { Divider } from "@nextui-org/react";
+import Hero from "@/components/_common/hero";
 const Data = [
   {
     content: EMAIL,
@@ -23,12 +24,12 @@ const Data = [
 
 const ContactPage = () => {
   return (
-    <Flex className="flex-col w-full text-center gap-8 md:gap-20">
-      <Flex className="flex-col gap-10">
-        <Text type="h1" className="heading-xl">
+    <Hero className="flex-col w-full text-center gap-8 md:gap-20">
+      <Flex className="flex-col gap-6">
+        <Text type="h1" className="heading-md">
           Ready to Get Real? Let’s Talk
         </Text>
-        <Text className="whitespace-pre-line text-xl font-semibold text-neutral-600">
+        <Text className="text-lg text-neutral-600">
           {
             "Whether you’ve got questions or want to get started, we’re here.\nShoot us a message or call us directly"
           }
@@ -47,7 +48,7 @@ const ContactPage = () => {
 
       <Divider />
       <ContactForm />
-    </Flex>
+    </Hero>
   );
 };
 

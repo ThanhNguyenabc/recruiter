@@ -1,13 +1,13 @@
 import { cn } from "@nextui-org/react";
-import React from "react";
+import React, { forwardRef } from "react";
 
-type FlexProps = {
-  className?: string;
-  children: React.ReactNode | React.ReactElement;
-};
 
-const Flex = ({ children, className }: FlexProps) => {
-  return <div className={cn("flex", className)}>{children}</div>;
-};
-
+const Flex = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children }, ref) => (
+    <div ref={ref} className={cn("flex", className)}>
+      {children}
+    </div>
+  )
+);
+Flex.displayName = "Flex";
 export default Flex;

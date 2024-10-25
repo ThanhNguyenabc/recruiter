@@ -7,3 +7,5 @@ export { default as SecondEmail } from "../../../public/icons/mail1.svg";
 export { default as Linkdln } from "../../../public/icons/linkedin.svg";
 export { default as Youtube } from "../../../public/icons/youtube.svg";
 export { default as Star } from "../../../public/icons/star.svg";
+export { default as Money } from "../../../public/icons/money.svg";
+export { default as ChevronRight } from "../../../public/icons/chevron-right.svg";

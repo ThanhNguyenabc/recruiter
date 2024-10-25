@@ -1,4 +1,4 @@
-import Container from "@/components/_common/container";
+import Flex from "@/components/_common/flex";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { NextUIProvider } from "@nextui-org/react";
@@ -8,7 +8,9 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <NextUIProvider>
       <Header />
-      <Container className="min-h-screen justify-between my-10">{children}</Container>
+      <Flex className="min-h-screen flex-col justify-between mb-10 w-full">
+        {children}
+      </Flex>
       <Footer />
     </NextUIProvider>
   );
