@@ -1,9 +1,10 @@
 "use client";
 
 import React, { PropsWithChildren, useState } from "react";
-import { Button, Input, Select, SelectItem } from "@nextui-org/react";
+import { Input, Select, SelectItem } from "@nextui-org/react";
 import Flex from "../_common/flex";
 import Text from "../_common/text";
+import Button from "../_common/button";
 
 const users = [
   {
@@ -64,12 +65,7 @@ const ContactForm = ({ children }: PropsWithChildren) => {
             </Flex>
           </>
         )}
-        <Button
-          size="lg"
-          type="submit"
-          color="primary"
-          className=" text-white font-semibold"
-        >
+        <Button responsive type="submit" color="primary">
           Submit
         </Button>
       </form>

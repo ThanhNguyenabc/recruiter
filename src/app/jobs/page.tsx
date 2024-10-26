@@ -94,6 +94,7 @@ const JobItem = (job: Job) => {
       </Flex>
       <Text>{job.desc}</Text>
       <Button
+        size="lg"
         className=" max-w-fit font-semibold text-white self-end"
         color="primary"
       >

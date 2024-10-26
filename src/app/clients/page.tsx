@@ -18,7 +18,11 @@ const CLients = () => {
           </Text>
         </Flex>
       </Hero>
-      <Hero className="flex-col gap-6">
+      <Hero
+        className="flex-col gap-6"
+        hasBackground
+        bgClassName="bg-neutral-100"
+      >
         <Text className="heading-lg  md:heading-xl">CLIENTS</Text>
         <Text
           type="p"

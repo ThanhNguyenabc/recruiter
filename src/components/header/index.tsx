@@ -21,8 +21,8 @@ const Header = () => {
   }, [showMenu]);
 
   return (
-    <div className=" bg-[#181010]">
-      <Container className="flex relative gap-5 items-center top-0 z-10 lg:gap-8">
+    <div className=" bg-[#181010] fixed w-full top-0 z-[999]">
+      <Container className="flex relative  gap-5 items-center  lg:gap-8">
         <Button
           onClick={() => setShowMenu(!showMenu)}
           className=" lg:hidden bg-transparent border-none"
