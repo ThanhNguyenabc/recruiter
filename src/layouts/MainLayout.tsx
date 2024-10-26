@@ -7,13 +7,11 @@ import React, { PropsWithChildren } from "react";
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <NextUIProvider>
-      <Flex className="flex-col">
-        <Header />
-        <Flex className="min-h-screen flex-col justify-between mt-[70px] mb-10 w-full">
-          {children}
-        </Flex>
-        <Footer />
+      <Header />
+      <Flex className="min-h-screen flex-col justify-between mt-[70px] mb-10 w-full">
+        {children}
       </Flex>
+      <Footer />
     </NextUIProvider>
   );
 };
