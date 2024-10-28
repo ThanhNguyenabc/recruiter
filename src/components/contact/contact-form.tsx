@@ -17,8 +17,11 @@ const users = [
   },
 ];
 
-const ContactForm = ({ children }: PropsWithChildren) => {
-  const [userType, setUserType] = useState(0);
+const ContactForm = ({
+  children,
+  type = 0,
+}: PropsWithChildren & { type?: number }) => {
+  const [userType, setUserType] = useState(type);
   return (
     <Flex className="flex-col w-full items-center gap-10 max-w-screen-sm self-center">
       {children}
@@ -48,12 +51,17 @@ const ContactForm = ({ children }: PropsWithChildren) => {
           <>
             <Input name="name" placeholder="Name" required />
 
-            <Input name="email" placeholder="Email" required />
-            <Input name="phone" placeholder="Phone number" required />
-            <Input name="location" placeholder="Location" required />
-            <Input name="role" placeholder="Role you’re seeking" required />
+            <Flex className="flex-col gap-8 md:flex-row">
+              <Input name="email" placeholder="Email" required />
+              <Input name="phone" placeholder="Phone number" required />
+            </Flex>
+            <Flex className="flex-col gap-8 md:flex-row">
+              <Input name="location" placeholder="Location" required />
+              <Input name="role" placeholder="Role you’re seeking" required />
+            </Flex>
+
             <Input name="salary" placeholder="Salary" required />
-            <Flex className="flex-row gap-4">
+            <Flex className="flex-row gap-4 items-center">
               <Text className="flex-1">Your resume:</Text>
               <Input
                 className="flex-1"

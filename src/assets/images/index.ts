@@ -5,3 +5,4 @@ export const Healthtech = "/images/healthtech.png";
 export const Cyber = "/images/cybersecurity.png";
 export const Fintech = "/images/fintech.png";
 export const HomeBanner = "/images/home-banner.png";
+export const JobBanner = "/images/job.png";
