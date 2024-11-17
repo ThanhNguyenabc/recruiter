@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ["cdn-dynamic.talent.com"],
   },
+
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

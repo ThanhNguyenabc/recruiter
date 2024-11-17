@@ -166,3 +166,5 @@ export const FAKEDATA: Job[] = [
       "https://cdn-dynamic.talent.com/ajax/img/get-logo.php?empcode=manulife&empname=Manulife&v=024",
   },
 ];
+
+
