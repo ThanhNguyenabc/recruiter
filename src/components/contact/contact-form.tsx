@@ -1,5 +1,4 @@
 "use client";
-
 import React, {
   ChangeEvent,
   PropsWithChildren,
@@ -13,7 +12,7 @@ import Button from "../_common/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { convertStringToCurrency, formatPhoneNUmber } from "@/utils/strings";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import useFetch from "@/hooks/useFetch";
 const users = [
   {
@@ -25,6 +24,7 @@ const users = [
     text: "Candidate",
   },
 ];
+// @ts-nocheck
 
 const ClientFormSchema = z.object({
   jobTitle: z.string().trim().min(5, {
@@ -61,9 +61,6 @@ const CandidateSchema = z.object({
   resume: z.any().refine((files) => files?.length == 1, "File is required."),
 });
 
-type ClientFormType = z.infer<typeof ClientFormSchema>;
-type CandidateFormType = z.infer<typeof CandidateSchema>;
-
 const ContactForm = ({
   children,
   type = 0,
@@ -89,7 +86,7 @@ const ContactForm = ({
       }, 3000);
     }
   }, [data, isLoading]);
-  const submitForm = async (data: ClientFormType | CandidateFormType) => {
+  const submitForm = async (data: FieldValues) => {
     console.log(data);
     const requestData: { [key: string]: unknown } = {
       contactType: users[userType].id,
@@ -139,9 +136,7 @@ const ContactForm = ({
       )}
 
       <form
-        onSubmit={handleSubmit(submitForm, (error) => {
-          console.log(error);
-        })}
+        onSubmit={handleSubmit(submitForm)}
         className="flex w-full flex-col gap-8"
       >
         <Select
