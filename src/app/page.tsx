@@ -11,6 +11,7 @@ import Testimonials from "@/components/testmonials";
 import Button from "@/components/_common/button";
 
 const Desc = ["No filters, just jobs that fit the real you."];
+
 export default function Home() {
   const router = useRouter();
   return (

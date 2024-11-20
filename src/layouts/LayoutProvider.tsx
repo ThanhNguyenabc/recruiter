@@ -1,12 +1,10 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React, { PropsWithChildren } from "react";
-import MainLayout from "./MainLayout";
-import CommingSoonLayout from "./CommingSoonLayout";
+import NoHeaderLayout from "./NoHeaderLayout";
 
 const Layouts = {
-  default: MainLayout,
-  "/comming-soon": CommingSoonLayout,
+  default: NoHeaderLayout,
 };
 
 const LayoutProvider = ({ children }: PropsWithChildren) => {

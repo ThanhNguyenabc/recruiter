@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import LayoutProvider from "@/layouts/LayoutProvider";
+import CommingSoonPage from "@/components/commingsoon";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,15 +17,11 @@ export const metadata: Metadata = {
     "recruiter, job search, recruitment services, job seekers, hiring, talent acquisition, employment, career",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout() {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LayoutProvider>{children}</LayoutProvider>
+        <LayoutProvider>{<CommingSoonPage />}</LayoutProvider>
       </body>
     </html>
   );

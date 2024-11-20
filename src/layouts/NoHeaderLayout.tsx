@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import { NextUIProvider } from "@nextui-org/react";
 import React, { PropsWithChildren } from "react";
 
-const CommingSoonLayout = ({ children }: PropsWithChildren) => {
+const NoHeaderLayout = ({ children }: PropsWithChildren) => {
   return (
     <NextUIProvider>
       <Flex className="min-h-screen flex-col justify-between mb-10 w-full">
@@ -14,4 +14,4 @@ const CommingSoonLayout = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default CommingSoonLayout;
+export default NoHeaderLayout;
