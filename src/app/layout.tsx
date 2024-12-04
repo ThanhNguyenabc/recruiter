@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import LayoutProvider from "@/layouts/LayoutProvider";
 import CommingSoonPage from "@/components/commingsoon";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout() {
       <body className={inter.className}>
         <LayoutProvider>{<CommingSoonPage />}</LayoutProvider>
       </body>
+      <GoogleAnalytics gaId="GTM-KTF5V7C5" />
     </html>
   );
 }
