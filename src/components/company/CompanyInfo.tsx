@@ -23,7 +23,7 @@ const CompanyImages = [
   Company6Img,
 ];
 
-const ImageItem = ({ index, url }: { index: number; url: string }) => {
+const ImageItem = ({ url }: { url: string }) => {
   return (
     <Image
       width={150}
@@ -41,7 +41,13 @@ const CompanyInfo = () => {
 
   return (
     <Flex className="w-full flex-col gap-4 md:flex-row md:gap-8">
-      <Image width={210} height={46} src={CompanyIntroImg} alt="" />
+      <Image
+        width={201}
+        height={46}
+        src={CompanyIntroImg}
+        quality={100}
+        alt=""
+      />
       <Flex ref={ref} className="w-full h-10 gap-8 overflow-hidden">
         <motion.div
           className="flex gap-10 flex-shrink-0"
@@ -53,11 +59,11 @@ const CompanyInfo = () => {
             repeat: Infinity,
           }}
         >
-          {CompanyImages.map((item, index) => {
-            return <ImageItem key={item} url={item} index={index} />;
+          {CompanyImages.map((item) => {
+            return <ImageItem key={item} url={item} />;
           })}
-          {CompanyImages.map((item, index) => {
-            return <ImageItem key={item} url={item} index={index} />;
+          {CompanyImages.map((item) => {
+            return <ImageItem key={item} url={item} />;
           })}
         </motion.div>
       </Flex>
