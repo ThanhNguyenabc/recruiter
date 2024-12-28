@@ -24,35 +24,15 @@ const CompanyImages = [
 ];
 
 const ImageItem = ({ index, url }: { index: number; url: string }) => {
-  // useEffect(() => {
-  //   animation.set({
-  //     x: 0,
-  //   });
-  //   animation.start({});
-  //   return () => animation.stop();
-  // });
   return (
-    <motion.div
-      initial={{}}
-      animate={{
-        x: -200 * (index + 1),
-      }}
-      transition={{
-        ease: "linear",
-
-        duration: 4 * (index + 1),
-        repeatDelay: 1,
-      }}
-    >
-      <Image
-        width={150}
-        height={40}
-        draggable={false}
-        className="w-auto h-full"
-        src={url}
-        alt=""
-      />
-    </motion.div>
+    <Image
+      width={150}
+      height={40}
+      draggable={false}
+      className="w-auto h-full"
+      src={url}
+      alt=""
+    />
   );
 };
 
@@ -62,10 +42,24 @@ const CompanyInfo = () => {
   return (
     <Flex className="w-full flex-col gap-4 md:flex-row md:gap-8">
       <Image width={210} height={46} src={CompanyIntroImg} alt="" />
-      <Flex ref={ref} className="w-full h-10 gap-4 overflow-hidden">
-        {CompanyImages.map((item, index) => {
-          return <ImageItem key={item} url={item} index={index} />;
-        })}
+      <Flex ref={ref} className="w-full h-10 gap-8 overflow-hidden">
+        <motion.div
+          className="flex gap-10 flex-shrink-0"
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{
+            duration: 50,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
+          {CompanyImages.map((item, index) => {
+            return <ImageItem key={item} url={item} index={index} />;
+          })}
+          {CompanyImages.map((item, index) => {
+            return <ImageItem key={item} url={item} index={index} />;
+          })}
+        </motion.div>
       </Flex>
     </Flex>
   );
