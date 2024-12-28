@@ -1,7 +1,6 @@
 import Flex from "@/components/_common/flex";
 import Hero from "@/components/_common/hero";
 import Text from "@/components/_common/text";
-import Testimonials from "@/components/testmonials";
 import React from "react";
 
 const CLients = () => {
@@ -31,7 +30,6 @@ const CLients = () => {
           {`Let’s be real—most recruiters are just repeating what your HR team’s already tried, hoping for a different outcome. They keep fishing in the same tired candidate pool.\n\n\We’ve seen it, and it’s a waste of time. All you get are candidates who are scrambling for anything they can get.\n\nThat’s not how we do things. We dig deeper, reaching talent others overlook. The people we find aren’t blasting out applications or talking to other recruiters. They’re exclusive to you, and they’re a better fit because of it.`}
         </Text>
       </Hero>
-      <Testimonials />
     </>
   );
 };

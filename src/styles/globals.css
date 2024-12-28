@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #FEFEFE;
-  --foreground: #171717;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -14,27 +9,58 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   min-height: 100vh;
+  color: black;
 }
 
 @layer utilities {
-  .heading-xl {
-    @apply text-6xl font-bold
-   }
- 
-  .heading-lg {
-   @apply text-5xl font-semibold
+  .heading-1 {
+    @apply text-[64px] font-bold leading-[64px];
   }
 
-  .heading-md {
-   @apply text-3xl font-semibold
+  .heading-2 {
+    @apply text-5xl font-bold leading-[48px];
   }
 
-  .text-large {
-    @apply text-lg font-semibold
+  .heading-3 {
+    @apply text-[22px] font-bold;
   }
 
+  .heading-4 {
+    @apply text-lg font-bold;
+  }
   
+  .text-xl {
+    @apply text-lg font-semibold;
+  }
+  
+  .text-xl-semibold {
+    @apply text-lg font-semibold;
+  }
+  
+  /******** Text Large *********8*/
+  .text-lg-bold {
+    @apply text-base font-bold;
+  }
+
+  .text-lg-semibold {
+    @apply text-base font-semibold;
+  }
+
+  .text-lg-medium {
+    @apply text-base font-medium;
+  }
+
+  /******** Text Medium *********8*/
+  .text-md-bold {
+    @apply text-sm font-bold;
+  }
+
+  .text-md-semibold {
+    @apply text-sm font-semibold;
+  }
+
+  .text-md-medium {
+    @apply text-sm font-medium;
+  }
 }

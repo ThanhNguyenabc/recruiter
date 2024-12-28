@@ -15,8 +15,9 @@ const Button = ({
     <NButton
       {...other}
       className={cn(
-        responsive && " h-12 md:h-14 lg:text-lg lg:h-16",
-        other["color"] === "primary" && " text-white font-semibold",
+        "text-lg-bold",
+        responsive && " px-6 h-12 md:h-14 lg:text-lg",
+        other.variant === "bordered" && " border-black",
         className
       )}
     >
