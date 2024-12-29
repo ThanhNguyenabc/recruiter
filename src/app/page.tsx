@@ -4,10 +4,10 @@ import Text from "@/components/_common/text";
 import Image from "next/image";
 import Hero from "@/components/_common/hero";
 import JobCategories from "@/components/jobs/JobCategory";
-import HomeTestimonial from "@/components/home/HomeTestimonial";
 import CompanyInfo from "@/components/company/CompanyInfo";
 import LatestBlog from "@/components/blog/LatestBlog";
 import HomeActions from "@/components/home/HomeActions";
+import TestimonialSection from "@/components/testmonials/TestimonialSection";
 
 export default function HomePage() {
   return (
@@ -34,9 +34,8 @@ export default function HomePage() {
         </Flex>
         <CompanyInfo />
       </Hero>
-
       <JobCategories />
-      <HomeTestimonial />
+      <TestimonialSection />
       <LatestBlog />
     </>
   );
