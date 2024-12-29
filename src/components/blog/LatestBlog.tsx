@@ -41,11 +41,11 @@ const BlogData = [
 
 const LatestBlog = () => {
   return (
-    <Hero className="gap-12 md:gap-16">
+    <Hero className="gap-12 items-start md:gap-16">
       <Text type="h2" className="heading-2">
         LATEST BLOGS
       </Text>
-      <Flex className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <Flex className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
         {BlogData.map((item, index) => {
           if (index == 0)
             return (
