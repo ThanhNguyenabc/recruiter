@@ -23,6 +23,8 @@ const Header = () => {
     }
   }, [showMenu]);
 
+  const onShowMenu = () => setShowMenu(!showMenu);
+
   return (
     <div className=" bg-grey fixed w-full top-0 z-[999]">
       <Container className="flex relative p-4 gap-5 items-center justify-between md:p-5 lg:gap-6">
@@ -40,7 +42,7 @@ const Header = () => {
           className={cn(
             ` flex-col  flex-1 gap-4 h-screen absolute top-full -left-full p-4 z-[999] transition-all ease-in`,
             " md:gap-8 md:justify-center lg:flex-row lg:relative lg:left-0 lg:top-0 lg:h-fit lg:bg-transparent",
-            showMenu && "w-full sm:w-1/2 left-0 bg-[#181010]"
+            showMenu && "w-full sm:w-1/2 left-0  bg-[#181010]"
           )}
         >
           {Menu.map((item) => {
@@ -48,9 +50,11 @@ const Header = () => {
               <Link
                 key={`${item.title}`}
                 href={item.url}
+                onClick={onShowMenu}
                 className={cn(
                   " text-base font-bold text-gray-400 p-3 hover:text-black",
-                  pathName === item.url && "text-black"
+                  pathName === item.url && "text-black",
+                  showMenu && "text-white"
                 )}
               >
                 {item.title}
@@ -66,7 +70,7 @@ const Header = () => {
         </Flex>
 
         <Button
-          onClick={() => setShowMenu(!showMenu)}
+          onClick={onShowMenu}
           className="lg:hidden bg-transparent border-none w-10 h-10"
           variant="ghost"
         >
