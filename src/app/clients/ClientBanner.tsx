@@ -12,6 +12,8 @@ const ClientBanner = () => {
   const scrollToFAQ = () => {
     document.getElementById("faq-section")?.scrollIntoView({
       behavior: "smooth",
+      block: "start",
+      inline: "start",
     });
   };
   return (
