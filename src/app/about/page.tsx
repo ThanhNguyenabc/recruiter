@@ -1,6 +1,6 @@
 import AboutBanner from "@/components/about/AboutBanner";
 import AboutIntroSection from "@/components/about/AboutIntroSection";
-import AboutTestimonial from "@/components/about/AboutTestimonial";
+import TestimonialSection from "@/components/testmonials/TestimonialSection";
 import React from "react";
 
 const AboutPage = () => {
@@ -8,7 +8,7 @@ const AboutPage = () => {
     <>
       <AboutBanner />
       <AboutIntroSection />
-      <AboutTestimonial />
+      <TestimonialSection />
     </>
   );
 };
