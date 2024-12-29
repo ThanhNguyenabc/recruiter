@@ -2,7 +2,7 @@ export enum AppRoutes {
   HOME = "/",
   ABOUT = "/about",
   JOBS = "/jobs",
-  CLIENT = "/client",
+  CLIENT = "/clients",
   CONTACT = "/contact",
   BLOG = "/blog",
 }

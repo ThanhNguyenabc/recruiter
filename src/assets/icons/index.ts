@@ -15,3 +15,5 @@ export { default as IcFb } from "../../../public/icons/facebook.svg";
 export { default as IcFintech } from "../../../public/icons/fintech.svg";
 export { default as IcHealth } from "../../../public/icons/health.svg";
 export { default as IcCyber } from "../../../public/icons/cyber.svg";
+export { default as IcCircle } from "../../../public/icons/circle.svg";
+export { default as IcPlus } from "../../../public/icons/plus.svg";
