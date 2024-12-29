@@ -29,7 +29,7 @@ const Questions = [
 
 const FAQSection = () => {
   return (
-    <Hero className="gap-8 md:gap-10">
+    <Hero className="gap-8 md:gap-10" id="faq-section">
       <Text type="h2" className="heading-2">
         MOST ASK QUESTIONS
       </Text>
