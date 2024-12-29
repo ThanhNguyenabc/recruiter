@@ -229,7 +229,13 @@ const ContactForm = ({
           </Flex>
         )}
 
-        <Button responsive type="submit" color="primary" isLoading={isLoading}>
+        <Button
+          responsive
+          type="submit"
+          color="primary"
+          className=" w-fit"
+          isLoading={isLoading}
+        >
           Submit
         </Button>
       </form>

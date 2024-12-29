@@ -2,6 +2,8 @@ import React from "react";
 import Hero from "../_common/hero";
 import Text from "../_common/text";
 import Button from "../_common/button";
+import Link from "next/link";
+import { AppRoutes } from "@/utils/routes";
 
 const CTAFooter = () => {
   return (
@@ -17,16 +19,11 @@ const CTAFooter = () => {
         Creed classics—WITH ARMS WIDE OPENNNNN! (No refunds for emotional
         damage.)
       </Text>
-      <form className="flex flex-col w-full md:flex-row justify-center gap-4 mb-8">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full px-4 py-2 rounded-md border border-black focus:outline-none"
-        />
+      <Link href={AppRoutes.CONTACT}>
         <Button color="success" className="text-white">
-          Subscribe
+          Contact us
         </Button>
-      </form>
+      </Link>
     </Hero>
   );
 };

@@ -4,7 +4,12 @@ import Hero from "../_common/hero";
 import Text from "../_common/text";
 import { Chip } from "@nextui-org/react";
 
-const BannerChips = ["No fake smiles", "No forced professionalism", "No masks"];
+const BannerChips = [
+  "No fake smiles",
+  "No forced professionalism",
+  "No masks",
+  "No pretending",
+];
 
 const AboutBanner = () => {
   return (
@@ -23,7 +28,7 @@ const AboutBanner = () => {
         {BannerChips.map((item) => (
           <Chip
             key={item}
-            className="border-black border bg-grey"
+            className="border-black border bg-grey  py-3"
             classNames={{
               content: " text-md-bold",
             }}

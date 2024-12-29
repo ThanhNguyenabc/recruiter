@@ -14,20 +14,22 @@ body {
 }
 
 @layer utilities {
+
+  
   .heading-1 {
-    @apply text-[64px] font-bold leading-[64px];
+    @apply text-[64px] font-[900] leading-[64px];
   }
 
   .heading-2 {
-    @apply text-5xl font-bold leading-[48px];
+    @apply text-5xl font-[900] leading-[48px];
   }
 
   .heading-3 {
-    @apply text-[22px] font-bold;
+    @apply text-[22px] font-[900];
   }
 
   .heading-4 {
-    @apply text-lg font-bold;
+    @apply text-lg font-[900];
   }
   
   .text-xl {
@@ -40,7 +42,7 @@ body {
   
   /******** Text Large *********8*/
   .text-lg-bold {
-    @apply text-base font-bold;
+    @apply text-base font-[900];
   }
 
   .text-lg-semibold {
@@ -48,12 +50,12 @@ body {
   }
 
   .text-lg-medium {
-    @apply text-base font-medium;
+    @apply text-base font-medium leading-6;
   }
 
   /******** Text Medium *********8*/
   .text-md-bold {
-    @apply text-sm font-bold;
+    @apply text-sm font-[900];
   }
 
   .text-md-semibold {

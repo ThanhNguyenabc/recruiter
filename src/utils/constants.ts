@@ -6,32 +6,33 @@ import {
   PhoneIcon,
   SecondEmail,
 } from "@/assets/icons";
+import { AppRoutes } from "./routes";
 
 export const Menu = [
   {
     title: "Home",
-    url: "/",
+    url: AppRoutes.HOME,
   },
   {
     title: "About",
-    url: "/about",
+    url: AppRoutes.ABOUT,
   },
 
   {
     title: "Jobs",
-    url: "/jobs",
+    url: AppRoutes.JOBS,
   },
   {
     title: "Clients",
-    url: "/clients",
+    url: AppRoutes.CLIENT,
   },
   {
     title: "Contact",
-    url: "/contact",
+    url: AppRoutes.CONTACT,
   },
   {
     title: "Blog",
-    url: "/blog",
+    url: AppRoutes.BLOG,
   },
 ];
 
