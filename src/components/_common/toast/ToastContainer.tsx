@@ -29,10 +29,10 @@ const ToastItem = ({ toast }: { toast: Toast }) => {
         "w-full p-4 bg-white rounded-md text-lg font-semibold",
         toast.type === "success" && "bg-green-500 text-white"
       )}
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.2 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
     >
       {toast.message}
     </motion.div>
@@ -45,7 +45,7 @@ export const ToastContainer = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({ showToast }));
 
   const showToast = ({ message, type }: Toast) => {
-    const id = window.crypto.randomUUID();
+    const id = Math.random().toString(36).substr(2, 9);
 
     dispatch({ type: "ADD_TOAST", payload: { id, message, type } });
     setTimeout(() => {
@@ -54,7 +54,7 @@ export const ToastContainer = forwardRef((props, ref) => {
   };
 
   return (
-    <Flex className="fixed top-0 right-0 p-6 gap-4 flex-col min-w-[200px] items-end z-[999]">
+    <Flex className="fixed inline-flex top-20 right-0 p-6 gap-4 flex-col min-w-[200px] items-end z-[999]">
       {toasts.map((toast) => (
         <ToastItem key={toast.id} toast={toast} />
       ))}

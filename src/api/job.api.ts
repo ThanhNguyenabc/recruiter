@@ -45,8 +45,7 @@ export const submitContact = async (data: {
     const response = await AxiosClient.post(`/contacts`, {
       data: data,
     });
-    console.log("request::::", response.request);
-    console.log("response:::", response.data);
+
     if (response.data["data"]) {
       return true;
     }
