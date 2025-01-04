@@ -39,7 +39,15 @@ const ClientBanner = () => {
           COMPANIES COUNT ON US
         </Text>
       </Flex>
-      <Flex className="w-full flex-1 h-[500px] lg:h-[759px] bg-black rounded-2xl"></Flex>
+      <Flex className="w-full flex-1 h-[500px] lg:h-[759px] bg-neutral-200 rounded-2xl">
+        <video
+          controls
+          width={"100%"}
+          src="/banner-video.MP4"
+          autoPlay
+          className=" w-full h-full aspect-square"
+        />
+      </Flex>
     </Hero>
   );
 };

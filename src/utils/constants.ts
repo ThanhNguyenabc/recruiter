@@ -109,3 +109,6 @@ export const TestimonialData = [
     star: 5,
   },
 ];
+
+export const SUCCESS_MESSAGE =
+  "Thank you for reaching out! We will get back to you shortly.";

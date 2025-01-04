@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 import { COLORS } from "./src/utils/colors";
+import typography from "@tailwindcss/typography";
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +13,7 @@ const config: Config = {
   ],
 
   plugins: [
+    typography,
     nextui({
       themes: {
         light: {

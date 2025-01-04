@@ -5,4 +5,5 @@ export enum AppRoutes {
   CLIENT = "/clients",
   CONTACT = "/contact",
   BLOG = "/blog",
+  JOB_DETAIL = "/job/:slug",
 }

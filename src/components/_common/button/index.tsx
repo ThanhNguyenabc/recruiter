@@ -3,11 +3,13 @@ import React from "react";
 
 interface Props extends ButtonProps {
   responsive?: boolean;
+  isFitWidth?: boolean;
 }
 
 const Button = ({
   className,
   children,
+  isFitWidth = false,
   responsive = true,
   ...other
 }: Props) => {
@@ -16,6 +18,7 @@ const Button = ({
       {...other}
       className={cn(
         "text-lg-bold",
+        isFitWidth && " w-fit",
         responsive && " px-6 h-12 md:h-14 lg:text-lg",
         other.variant === "bordered" && " border-black",
         className

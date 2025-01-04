@@ -3,8 +3,9 @@ import Hero from "../_common/hero";
 import Flex from "../_common/flex";
 import Text from "../_common/text";
 import JobList from "./JobList";
+import { Job } from "@/models/job";
 
-const OpeningJobs = () => {
+const OpeningJobs = ({ jobs }: { jobs: Job[] }) => {
   return (
     <Hero className="">
       <Flex className="flex-col gap-4 items-center">
@@ -15,7 +16,7 @@ const OpeningJobs = () => {
           Explore our available positions and find the perfect role for you.{" "}
         </Text>
       </Flex>
-      <JobList />
+      <JobList jobs={jobs} />
     </Hero>
   );
 };

@@ -16,7 +16,7 @@ const Questions = [
       "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
   },
   {
-    question: "What is Arkham Talent?",
+    question: "What is Arkham Talent??",
     answer:
       "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
   },

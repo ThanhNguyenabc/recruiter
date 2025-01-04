@@ -18,6 +18,8 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  if (typeof document === "undefined") return null;
+
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}

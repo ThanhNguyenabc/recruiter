@@ -1,6 +1,4 @@
-"use server";
-
-import { sendToAirtable } from "@/lib/airtable";
+import { submitContact } from "@/api/job.api";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -10,26 +8,27 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Data is missing" }, { status: 403 });
     }
     console.log(data);
-    const records = await sendToAirtable("Contacts", {
+    const body = {
       Type: data["contactType"],
       Name: data["name"] || "",
       Email: data["email"] || "",
       Phone: data["phone"] || "",
       Location: data["location"] || "",
-      "Role Seeking": data["roleSeeking"] || "",
+      RoleSeeking: data["roleSeeking"] || "",
       Salary: data["salary"] || "",
-      "Role Hiring": data["roleHiring"] || "",
-      "Job Title": data["jobTitle"] || "",
+      RoleHiring: data["roleHiring"] || "",
+      JobTitle: data["jobTitle"] || "",
       Company: data["company"] || "",
-    });
+    };
+    const records = await submitContact(body);
 
     if (records)
       return NextResponse.json({ message: "success" }, { status: 200 });
   } catch (error: unknown) {
     console.log(error);
-    return NextResponse.json(
-      { error: "Something was happended" },
-      { status: 500 }
-    );
   }
+  return NextResponse.json(
+    { error: "Something was happended" },
+    { status: 500 }
+  );
 }

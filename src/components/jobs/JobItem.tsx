@@ -4,16 +4,13 @@ import Flex from "../_common/flex";
 import Image from "next/image";
 import Text from "../_common/text";
 import Button from "../_common/button";
-
-export type Job = {
-  jobTitle: string;
-  jobType: string;
-  companyLogo: string;
-  location: string;
-  salary: string;
-};
+import { Job } from "@/models/job";
+import Link from "next/link";
+import { AppRoutes } from "@/utils/routes";
 
 const JobItem = (job: Job) => {
+  const { JobTitle, JobType, CompanyLogo, Location, Salary, Slug } = job;
+
   return (
     <Flex className="flex-col gap-4 p-4 md:p-8 w-full bg-white rounded-[20px] border border-[#DBD7CA]">
       <Flex className=" justify-between">
@@ -22,7 +19,7 @@ const JobItem = (job: Job) => {
           quality={100}
           height={64}
           alt="company-logo"
-          src={job.companyLogo}
+          src={CompanyLogo || "/images/mc-donal.png"}
         />
         <Chip
           className=" bg-success h-6 rounded-md text-primary"
@@ -30,25 +27,26 @@ const JobItem = (job: Job) => {
             content: " text-md-bold",
           }}
         >
-          {job.jobType}
+          {JobType}
         </Chip>
       </Flex>
-      <Text className="text-success heading-3">
-        {job.jobTitle.toUpperCase()}
-      </Text>
+      <Text className="text-success heading-3">{JobTitle?.toUpperCase()}</Text>
       <Flex className="flex-col gap-2 md:h-[53px] md:gap-[50px] md:flex-row">
         <Flex className="gap-2">
           <Text className="text-secondary  text-lg-medium">Location:</Text>
-          <Text className=" font-extrabold"> {job.location}</Text>
+          <Text className=" font-extrabold"> {Location}</Text>
         </Flex>
         <Flex className="gap-2">
           <Text className="text-secondary  text-lg-medium">Salary:</Text>
-          <Text className=" font-extrabold">{job.salary}</Text>
+          <Text className=" font-extrabold">{Salary}</Text>
         </Flex>
       </Flex>
-      <Button className="w-fit md:h-12" variant="bordered">
-        Learn More
-      </Button>
+
+      <Link href={`${AppRoutes.JOB_DETAIL.replace(":slug", Slug)}`}>
+        <Button className="w-fit md:h-12" variant="bordered">
+          Learn More
+        </Button>
+      </Link>
     </Flex>
   );
 };

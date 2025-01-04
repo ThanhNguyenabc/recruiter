@@ -14,6 +14,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { convertStringToCurrency, formatPhoneNUmber } from "@/utils/strings";
 import { FieldValues, useForm } from "react-hook-form";
 import useFetch from "@/hooks/useFetch";
+import { useToast } from "../_common/toast/Toast";
+import { SUCCESS_MESSAGE } from "@/utils/constants";
 const users = [
   {
     id: "client",
@@ -24,7 +26,6 @@ const users = [
     text: "Candidate",
   },
 ];
-// @ts-nocheck
 
 const ClientFormSchema = z.object({
   jobTitle: z.string().trim().min(5, {
@@ -67,7 +68,8 @@ const ContactForm = ({
 }: PropsWithChildren & { type?: number }) => {
   const [userType, setUserType] = useState(type);
   const { data, isLoading, fetchData } = useFetch("/api/submit-form", "POST");
-  const [message, setShowMessage] = useState(false);
+  const { showToast } = useToast();
+
   const {
     register,
     handleSubmit,
@@ -80,14 +82,14 @@ const ContactForm = ({
 
   useEffect(() => {
     if (data && !isLoading) {
-      setShowMessage(true);
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 3000);
+      showToast({
+        message: SUCCESS_MESSAGE,
+        type: "success",
+      });
     }
-  }, [data, isLoading]);
+  }, [data, isLoading, showToast]);
+
   const submitForm = async (data: FieldValues) => {
-    console.log(data);
     const requestData: { [key: string]: unknown } = {
       contactType: users[userType].id,
       ...data,
@@ -129,12 +131,6 @@ const ContactForm = ({
     <Flex className="flex-col w-full items-center gap-10 max-w-screen-sm self-center">
       {children}
 
-      {message && (
-        <Flex className=" font-semibold text-lg text-green-600">
-          We have received your data. Thanks for submitting
-        </Flex>
-      )}
-
       <form
         onSubmit={handleSubmit(submitForm)}
         className="flex w-full flex-col gap-8"
@@ -144,14 +140,15 @@ const ContactForm = ({
           required
           defaultSelectedKeys={userType.toString()}
           onSelectionChange={(key) => {
-            setUserType(Number(key.currentKey));
+            if (key.currentKey !== userType.toString())
+              setUserType(Number(key.currentKey));
           }}
         >
           {users.map((item, index) => (
             <SelectItem key={index}>{item.text}</SelectItem>
           ))}
         </Select>
-        {users[userType].id == "client" ? (
+        {users[userType]?.id == "client" ? (
           <>
             <Input
               {...register("jobTitle")}
@@ -215,7 +212,7 @@ const ContactForm = ({
           onChange={formatSalary}
         />
 
-        {users[userType].id == "candidate" && (
+        {users[userType]?.id == "candidate" && (
           <Flex className="flex-row gap-4 items-center">
             <Text className="flex-1">Your resume:</Text>
             <Input

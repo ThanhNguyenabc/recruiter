@@ -1,3 +1,5 @@
+"use client";
+
 import React, { forwardRef, useImperativeHandle, useReducer } from "react";
 import Flex from "../flex";
 import { Toast } from "./Toast.type";
@@ -43,7 +45,7 @@ export const ToastContainer = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({ showToast }));
 
   const showToast = ({ message, type }: Toast) => {
-    const id = Math.random().toString(36).substr(2, 9);
+    const id = window.crypto.randomUUID();
 
     dispatch({ type: "ADD_TOAST", payload: { id, message, type } });
     setTimeout(() => {
@@ -52,11 +54,12 @@ export const ToastContainer = forwardRef((props, ref) => {
   };
 
   return (
-    <Flex className="fixed top-0 right-0 p-6 gap-4 flex-col min-w-[200px] items-end z-[1000]">
+    <Flex className="fixed top-0 right-0 p-6 gap-4 flex-col min-w-[200px] items-end z-[999]">
       {toasts.map((toast) => (
         <ToastItem key={toast.id} toast={toast} />
       ))}
     </Flex>
   );
 });
+
 ToastContainer.displayName = "ToastContainer";

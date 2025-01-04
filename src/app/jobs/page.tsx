@@ -1,12 +1,17 @@
+import { getJobs } from "@/api/job.api";
 import JobBanner from "@/components/jobs/JobBanner";
 import OpeningJobs from "@/components/jobs/OpeningJobs";
+
 import React from "react";
 
-const JobsPage = () => {
+export const dynamic = "force-dynamic";
+
+const JobsPage = async () => {
+  const jobs = await getJobs();
   return (
     <>
       <JobBanner />
-      <OpeningJobs />
+      <OpeningJobs jobs={jobs || []} />
     </>
   );
 };

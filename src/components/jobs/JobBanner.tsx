@@ -29,6 +29,7 @@ const ClientInfo = (info: { title: string; subTitle: string }) => {
     </Flex>
   );
 };
+
 const JobBanner = () => {
   return (
     <Hero bgClassName="bg-success" className="gap-10 md:gap-20">
