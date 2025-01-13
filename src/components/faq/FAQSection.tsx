@@ -3,29 +3,7 @@ import Hero from "../_common/hero";
 import Text from "../_common/text";
 import QuestionItem from "./QuestionItem";
 import Flex from "../_common/flex";
-
-const Questions = [
-  {
-    question: "What is Arkham Talent?",
-    answer:
-      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
-  },
-  {
-    question: "What positions do we fill?",
-    answer:
-      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
-  },
-  {
-    question: "What is Arkham Talent??",
-    answer:
-      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
-  },
-  {
-    question: "What is your candidate search process??",
-    answer:
-      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
-  },
-];
+import { FAQQuestions } from "@/utils/constants";
 
 const FAQSection = () => {
   return (
@@ -34,7 +12,7 @@ const FAQSection = () => {
         MOST ASK QUESTIONS
       </Text>
       <Flex className="w-full flex-col">
-        {Questions.map((item) => (
+        {FAQQuestions.map((item) => (
           <QuestionItem key={item.question} {...item} />
         ))}
       </Flex>

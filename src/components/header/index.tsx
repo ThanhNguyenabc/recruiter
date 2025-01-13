@@ -32,6 +32,7 @@ const Header = () => {
       <Container className="flex relative p-4 gap-5 items-center justify-between md:p-5 lg:gap-6">
         <Link href="/">
           <Image
+            priority
             src={LogoImg}
             width={200}
             height={200}
@@ -76,7 +77,7 @@ const Header = () => {
         </Flex>
 
         <Button
-          onClick={onShowMenu}
+          onPress={onShowMenu}
           className="lg:hidden bg-transparent border-none w-10 h-10"
           variant="ghost"
         >

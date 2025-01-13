@@ -4,6 +4,7 @@ import Button from "@/components/_common/button";
 import Flex from "@/components/_common/flex";
 import Hero from "@/components/_common/hero";
 import Text from "@/components/_common/text";
+import CompanyInfo from "@/components/company/CompanyInfo";
 import { AppRoutes } from "@/utils/routes";
 import Link from "next/link";
 import React from "react";
@@ -31,19 +32,18 @@ const ClientBanner = () => {
           <Link href={AppRoutes.CONTACT}>
             <Button color="primary">Contact us</Button>
           </Link>
-          <Button variant="bordered" onClick={scrollToFAQ}>
+          <Button variant="bordered" onPress={scrollToFAQ}>
             Most asked questions
           </Button>
         </Flex>
-        <Text type="h3" className="heading-3">
-          COMPANIES COUNT ON US
-        </Text>
+        
+        <CompanyInfo />
       </Flex>
       <Flex className="w-full flex-1 h-[500px] lg:h-[759px] bg-neutral-200 rounded-2xl">
         <video
           controls
           width={"100%"}
-          src="/banner-video.MP4"
+          src="/client-video.mp4"
           autoPlay
           className=" w-full h-full aspect-square"
         />

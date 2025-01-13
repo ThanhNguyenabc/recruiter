@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn-dynamic.talent.com"],
+    domains: ["cdn-dynamic.talent.com", "localhost:3000"],
   },
 
   webpack(config) {

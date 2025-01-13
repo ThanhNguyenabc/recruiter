@@ -1,10 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = "http://31.220.31.119:1337/api";
+const BASE_URL = process.env.BE_API;
 
 const AxiosClient = axios.create({
   baseURL: BASE_URL,
-  headers: { "content-Type": "application/json" },
+  headers: {
+    "content-Type": "application/json",
+    Authorization: `Bearer ${process.env.API_TOKEN}`,
+  },
 });
 
 export default AxiosClient;

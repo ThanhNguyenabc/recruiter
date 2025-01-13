@@ -68,7 +68,7 @@ const JobDetailTemplate = (job: Job) => {
             </Flex>
           ))}
         </Flex>
-        <Button className="w-fit" color="primary" onClick={gotToForm}>
+        <Button className="w-fit" color="primary" onPress={gotToForm}>
           Apply now!
         </Button>
       </Hero>

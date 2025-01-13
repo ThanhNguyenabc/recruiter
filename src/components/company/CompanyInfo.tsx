@@ -3,7 +3,6 @@
 import React, { useRef } from "react";
 import Flex from "../_common/flex";
 import {
-  CompanyIntroImg,
   Company1Img,
   Company2Img,
   Company3Img,
@@ -13,6 +12,7 @@ import {
 } from "@/assets/images";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Text from "../_common/text";
 
 const CompanyImages = [
   Company1Img,
@@ -29,7 +29,7 @@ const ImageItem = ({ url }: { url: string }) => {
       width={150}
       height={40}
       draggable={false}
-      className="w-auto h-full"
+      className="w-auto h-10"
       src={url}
       alt=""
     />
@@ -41,13 +41,7 @@ const CompanyInfo = () => {
 
   return (
     <Flex className="w-full flex-col gap-4 md:flex-row md:gap-8">
-      <Image
-        width={201}
-        height={46}
-        src={CompanyIntroImg}
-        quality={100}
-        alt=""
-      />
+      <Text className="heading-3 leading-6">Companies Trust Us</Text>
       <Flex ref={ref} className="w-full h-10 gap-8 overflow-hidden">
         <motion.div
           className="flex gap-10 flex-shrink-0"

@@ -112,3 +112,46 @@ export const TestimonialData = [
 
 export const SUCCESS_MESSAGE =
   "Thank you for reaching out! We will get back to you shortly.";
+
+export const FAQQuestions = [
+  {
+    question: "What is Arkham Talent?",
+    answer:
+      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
+  },
+  {
+    question: "What positions do we fill?",
+    answer: `We specialize in go-to-market roles:
+            Sales (SDR to VP level)
+            Payer/Provider Sales
+            Marketing
+            Customer Success
+            Product (commercial)
+`,
+  },
+  {
+    question: "What makes Arkham different?",
+    answer:
+      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
+  },
+  {
+    question: "What is your candidate search process?",
+    answer: `Our search process is methodical and collaborative:
+
+In-depth discovery session to understand your requirements and culture
+Initial market assessment within 48 hours to align on ideal candidate profiles
+Targeted search execution using our healthcare technology network
+Regular updates and refinements throughout the search
+Continuous guidance from initial screening through final selection
+Each search is tailored to your specific needs, ensuring we find candidates who not only match the technical requirements but also align with your organization's vision and culture.
+`,
+  },
+  {
+    question: "How can companies get started with Arkham Talent?",
+    answer: `Connect with us in two ways:
+
+    Email us directly through our website
+    Schedule a consultation: <a target="_blank" href="https://calendly.com/arkhamtalent" className="text-blue-500">www.calendly.com/arkhamtalent</a>
+`,
+  },
+];

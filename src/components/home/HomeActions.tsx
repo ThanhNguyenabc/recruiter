@@ -12,7 +12,7 @@ const HomeActions = () => {
         color="primary"
         responsive
         className=" min-w-40"
-        onClick={() => router.push("/jobs")}
+        onPress={() => router.push("/jobs")}
       >
         Explore job openings
       </Button>
@@ -20,7 +20,7 @@ const HomeActions = () => {
         responsive
         variant="bordered"
         className=" min-w-40"
-        onClick={() => router.push("/clients")}
+        onPress={() => router.push("/clients")}
       >
         Find your next hire
       </Button>

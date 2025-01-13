@@ -50,10 +50,10 @@ const JobCategories = () => {
     <Hero className="gap-12 md:gap-16">
       <Flex className="w-full gap-10 flex-col justify-between items-center md:flex-row">
         <Text className="heading-2 md:max-w-[500px] lg:max-w-fit">
-          JOBS WE TEND TO WORK ON
+          INDUSTRIES WE WORK WITH
         </Text>
         <Button variant="solid" color="primary" className=" hidden md:flex">
-          Visit the jobs
+          Job Listings
         </Button>
       </Flex>
       <Flex className=" gap-4 flex-col md:flex-row">
@@ -62,7 +62,7 @@ const JobCategories = () => {
         ))}
       </Flex>
       <Button variant="solid" color="primary" className="w-full md:hidden">
-        Visit the jobs
+        Job Listings
       </Button>
     </Hero>
   );
