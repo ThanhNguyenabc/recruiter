@@ -9,34 +9,34 @@ import React from "react";
 
 const HOW_WORKS = [
   {
-    title: "Perfect Matches Are Overrated",
+    title: "Wider Talent Pool",
     subTitle:
       "Who cares about culture fit or qualifications? A recruiter will send anyone who sort of fits the bill. Close enough, right?",
   },
   {
-    title: "Stress-Free Hiring",
+    title: "Industry Expertise",
     subTitle:
       "Why waste time reviewing resumes and interviewing candidates? Just let a recruiter throw someone at you and hope they can spell the job title.",
   },
   {
-    title: "Hiring the Wrong Person Is Half the Fun",
+    title: "Saves Time",
     subTitle:
-      "Skills, experience—who needs them? If they show up, that’s a win. If not, blame the recruiter!",
+      "We handle the time-consuming tasks like sourcing, screening, and interviews, allowing your internal team to focus on what matters most to your business.",
   },
   {
-    title: "Paying for Convenience",
+    title: "Better Hires",
     subTitle:
-      "Who cares about culture fit or qualifications? A recruiter will send anyone who sort of fits the bill. Close enough, right?",
+      "We thoroughly vet candidates, ensuring they meet both skill and cultural fit requirements, reducing the likelihood of a bad hire and its associated costs.",
   },
   {
-    title: "Who Cares About Your Reputation?",
+    title: "Market Insights",
     subTitle:
-      "Your company's image? Let a recruiter send over someone who hasn't even Googled you. It’s not like it matters anyway.",
+      "We provide up-to-date data on compensation trends, industry standards, and talent availability, helping your company stay competitive in attracting and retaining top talent.",
   },
   {
-    title: "Regret Is Just Part of the Journey",
+    title: "Cost-Effective",
     subTitle:
-      "Hiring mistakes? That’s why you have a recruiter—to give you someone to blame when it all goes wrong.",
+      "While there’s a cost, we help reduce turnover, minimize hiring delays, and ensure better hiring decisions, ultimately saving money and improving team performance.",
   },
 ];
 const HowShouldWork = () => {
@@ -61,8 +61,8 @@ const HowShouldWork = () => {
 
       <Flex className="flex-col gap-4 items-center self-center  text-center lg:max-w-[586px]">
         <Text className="text-lg-medium text-grey">
-          Want to outsource your hiring process to a recruitment agency and
-          experience the thrill of uncertainty? Contact us now to get started!
+          {`Don't take the gamble with a wrong hire. We take the guesswork out of
+          recruiting and finding ready candidates to make an impact.`}
         </Text>
         <Link href={AppRoutes.CONTACT}>
           <Button color="primary">Contact us</Button>

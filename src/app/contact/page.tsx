@@ -33,12 +33,14 @@ const Data = [
 const ContactPage = () => {
   return (
     <Hero className="flex-col w-full items-start gap-10 md:gap-20">
-      <Flex className="flex-col gap-6 lg:max-w-[590px]">
+      <Flex className="flex-col gap-6 lg:max-w-[600px]">
         <Text type="h1" className="heading-1 whitespace-pre-line">
-          {`NEED HELP? \nCONTACTS US`}
+          {`READY TO START?\nCONTACTS US`}
         </Text>
         <Text className="text-lg-medium text-secondary">
-          {`Fill out the contact form and we'll follow up with you asap. Or reach us directly by email or phone.`}
+          {
+            "No hoops to jump through. Just fill out the form or give us a call, and we’ll get back to you asap, plain and simple."
+          }
         </Text>
       </Flex>
 

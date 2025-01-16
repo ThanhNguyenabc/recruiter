@@ -131,8 +131,14 @@ export const FAQQuestions = [
   },
   {
     question: "What makes Arkham different?",
-    answer:
-      "Arkham Talent is a boutique recruitment firm specializing in healthtech, digital healthcare, AI, medtech, medical IoT and healthcare-focused SaaS companies. We partner with general saas organizations building or expanding their healthcare sales divisions.",
+    answer: `We combine executive search expertise with operational healthcare technology experience to build effective teams, not just fill positions. This dual expertise means we understand both talent acquisition and the unique challenges of healthcare technology organizations. We advise on organizational structure, team scaling, and strategic hiring based on proven industry patterns.
+This approach enables us to:
+
+Identify candidates who can navigate complex healthcare ecosystems
+Structure teams for optimal performance
+Guide hiring strategy based on real market experience
+Partner closely throughout the entire search process
+`,
   },
   {
     question: "What is your candidate search process?",
@@ -143,7 +149,9 @@ Initial market assessment within 48 hours to align on ideal candidate profiles
 Targeted search execution using our healthcare technology network
 Regular updates and refinements throughout the search
 Continuous guidance from initial screening through final selection
+
 Each search is tailored to your specific needs, ensuring we find candidates who not only match the technical requirements but also align with your organization's vision and culture.
+
 `,
   },
   {

@@ -9,15 +9,14 @@ const CTAFooter = () => {
   return (
     <Hero className="flex-col gap-6 md:max-w-[792px] mx-auto">
       <Text className="heading-2 md:heading-1 text-center">
-        GET STARTED WITH START TODAY
+        {`LET'S CONNECT TODAY`}
       </Text>
       <Text
         type="h2"
         className="text-gray-400 text-md-medium md:text-lg-medium text-center"
       >
-        Sign up for my mailing list and get front-row seats to me belting out
-        Creed classics—WITH ARMS WIDE OPENNNNN! (No refunds for emotional
-        damage.)
+        I welcome all inquiries WITH ARMS WIDE OPENNNNNN! ( Creed Classic. No
+        refunds for emotional damage.)
       </Text>
       <Link href={AppRoutes.CONTACT}>
         <Button color="success" className="text-white">

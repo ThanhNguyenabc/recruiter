@@ -7,7 +7,6 @@ export async function POST(request: Request) {
     if (!data) {
       return NextResponse.json({ error: "Data is missing" }, { status: 403 });
     }
-    console.log(data);
     const body = {
       Type: data["contactType"],
       Name: data["name"] || "",
