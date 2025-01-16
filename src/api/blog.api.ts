@@ -13,7 +13,6 @@ export const getAllBlogs = async (num: number = 100): Promise<Blog[]> => {
 };
 
 export const getBlogBySlug = async (slug: string) => {
-  console.log(slug);
   const response = await AxiosClient.get(
     `/ar-kham-blogs?filters[slug][$eq]=${slug}`
   );

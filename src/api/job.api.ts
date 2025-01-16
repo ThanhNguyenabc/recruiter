@@ -1,6 +1,5 @@
 import { Job } from "@/models/job";
 import AxiosClient from "./axios-client";
-import { AxiosError } from "axios";
 
 export const getJobs = async (): Promise<Job[] | null> => {
   try {
@@ -51,9 +50,6 @@ export const submitContact = async (data: {
     }
   } catch (error) {
     console.log(error);
-
-    const err = error as AxiosError;
-    console.log(err.response?.data);
   }
   return false;
 };
