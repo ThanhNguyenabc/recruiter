@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "The ArKham Talent",
   icons: {
-    icon: "/favicon.png",
+    icon: { url: "/favicon.png", type: "image/png" },
   },
   description:
     "Discover top recruiter services with Arkham Talent. We help job seekers find their dream jobs and employers recruit the best talent. Get in touch with us today!",

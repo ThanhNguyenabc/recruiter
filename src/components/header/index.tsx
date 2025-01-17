@@ -69,12 +69,13 @@ const Header = () => {
             );
           })}
         </Flex>
-        <Flex className="hidden lg:flex items-center gap-4">
+        <Link
+          href={`tel:${PHONE}`}
+          className="hidden lg:flex items-center gap-4 text-lg-bold"
+        >
           <PhoneIcon />
-          <Link href={`tel:${PHONE}`} className="text-lg-bold">
-            {PHONE}
-          </Link>
-        </Flex>
+          {PHONE}
+        </Link>
 
         <Button
           onPress={onShowMenu}

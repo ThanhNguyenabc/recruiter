@@ -10,13 +10,12 @@ import React from "react";
 const HOW_WORKS = [
   {
     title: "Wider Talent Pool",
-    subTitle:
-      "Who cares about culture fit or qualifications? A recruiter will send anyone who sort of fits the bill. Close enough, right?",
+    subTitle: `We tap into a broader network, including passive candidates, giving you access to a pool of talent beyond those actively job-hunting.`,
   },
   {
     title: "Industry Expertise",
     subTitle:
-      "Why waste time reviewing resumes and interviewing candidates? Just let a recruiter throw someone at you and hope they can spell the job title.",
+      "With specialized knowledge of your market, we understand the industry trends, job requirements, and candidate expectations, ensuring you get the right fit for each role.",
   },
   {
     title: "Saves Time",
