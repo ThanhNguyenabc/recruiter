@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://arkhamtalent.com
+
+# Sitemaps
+Sitemap: https://arkhamtalent.com/sitemap.xml
