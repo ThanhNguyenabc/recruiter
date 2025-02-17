@@ -32,17 +32,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, "bg-grey")}>
         <LayoutProvider>{children}</LayoutProvider>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
+
         <Script
-          id="gtm-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           async
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -52,6 +44,14 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
       </body>
     </html>
   );
