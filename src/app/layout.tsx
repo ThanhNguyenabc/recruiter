@@ -34,6 +34,7 @@ export default function RootLayout({
         <LayoutProvider>{children}</LayoutProvider>
 
         <Script
+          id="gtm"
           strategy="lazyOnload"
           async
           dangerouslySetInnerHTML={{
