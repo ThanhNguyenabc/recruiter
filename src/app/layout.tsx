@@ -30,13 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "bg-grey")}>
-        <LayoutProvider>{children}</LayoutProvider>
-
+      <head>
         <Script
           id="gtm"
-          strategy="lazyOnload"
-          async
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -45,6 +42,9 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
+      </head>
+      <body className={cn(inter.className, "bg-grey")}>
+        <LayoutProvider>{children}</LayoutProvider>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
