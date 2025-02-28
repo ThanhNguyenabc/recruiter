@@ -1,7 +1,13 @@
 import { AppRoutes } from "@/utils/routes";
 import type { MetadataRoute } from "next";
 
-const routes = Object.values(AppRoutes);
+const ExcludeRoutes = new Map<string, boolean>();
+ExcludeRoutes.set("/job/:slug", true);
+
+const routes = Object.values(AppRoutes).filter(
+  (item) => !ExcludeRoutes.has(item)
+);
+
 const Domains = [
   "https://arkhamtalent.org",
   "https://arkhamtalent.com",
