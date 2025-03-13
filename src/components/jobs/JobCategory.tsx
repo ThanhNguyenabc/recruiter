@@ -47,6 +47,8 @@ const CategoryItem = memo(({ title, description, ic: Icon }: Category) => {
     </Flex>
   );
 });
+CategoryItem.displayName = 'CategoryItem';
+
 
 const JobCategories = () => {
   const router = useRouter();
