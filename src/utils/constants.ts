@@ -44,7 +44,7 @@ export enum BreakPoints {
 
 export const EMAIL = "shaun@arkhamtalent.com";
 export const PHONE = "(516) 852-4011";
-
+export const MAIN_DOMAIN = "https://arkhamtalent.com";
 export const Contacts = [
   {
     icon: SecondEmail,

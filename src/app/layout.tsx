@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import LayoutProvider from "@/layouts/LayoutProvider";
 import { cn } from "@nextui-org/react";
 import Script from "next/script";
+import { MAIN_DOMAIN } from "@/utils/constants";
+import { headers } from "next/headers";
 
 const GTM_ID = "GTM-KTF5V7C5";
 
@@ -12,16 +13,22 @@ const inter = Inter({
   weight: ["400", "500", "600", "800"],
 });
 
-export const metadata: Metadata = {
-  title: "The ArKham Talent",
-  icons: {
-    icon: { url: "/favicon.png", type: "image/png" },
-  },
-  description:
-    "Discover top recruiter services with Arkham Talent. We help job seekers find their dream jobs and employers recruit the best talent. Get in touch with us today!",
-  keywords:
-    "recruiter, job search, recruitment services, job seekers, hiring, talent acquisition, employment, career",
-};
+export async function generateMetadata() {
+  const header = await headers();
+  return {
+    title: "The ArKham Talent",
+    icons: {
+      icon: { url: "/favicon.png", type: "image/png" },
+    },
+    description:
+      "Discover top recruiter services with Arkham Talent. We help job seekers find their dream jobs and employers recruit the best talent. Get in touch with us today!",
+    keywords:
+      "recruiter, job search, recruitment services, job seekers, hiring, talent acquisition, employment, career",
+    alternates: {
+      canonical: `${MAIN_DOMAIN}${header.get("x-pathname") || ""}`,
+    },
+  };
+}
 
 export default function RootLayout({
   children,
