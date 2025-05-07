@@ -14,13 +14,15 @@ const JobItem = (job: Job) => {
   return (
     <Flex className="flex-col gap-4 p-4 md:p-8 w-full bg-white rounded-[20px] border border-[#DBD7CA]">
       <Flex className=" justify-between">
-        <Image
-          width={64}
-          quality={100}
-          height={64}
-          alt="company-logo"
-          src={CompanyLogo || "/images/mc-donal.png"}
-        />
+        {CompanyLogo && (
+          <Image
+            width={64}
+            quality={100}
+            height={64}
+            alt="company-logo"
+            src={CompanyLogo}
+          />
+        )}
         <Chip
           className=" bg-success h-6 rounded-md text-primary"
           classNames={{
