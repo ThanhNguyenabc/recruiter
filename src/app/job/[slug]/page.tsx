@@ -28,15 +28,16 @@ const JobDetailTemplate = () => {
     Location,
     Salary,
     JobDescription,
+    WorkingArrangement,
   } = job || {};
 
   const Information = [
-    { title: "Type:", value: JobTitle },
+    { title: "Type:", value: JobType },
     { title: "Salary:", value: `${Salary}$` },
     { title: "Location:", value: Location },
     {
       title: "Working Arrangement:",
-      value: JobType,
+      value: WorkingArrangement,
     },
   ];
   useEffect(() => {
@@ -109,16 +110,17 @@ const JobDetailTemplate = () => {
         </Flex>
 
         <JobDetailSection title="WORKING ARRANGEMENT">
-          <Text className="text-lg-medium">{JobType}</Text>
+          <Text className="text-lg-medium">{WorkingArrangement}</Text>
         </JobDetailSection>
         <JobDetailSection title="APPLY VIA E-MAIL">
           <Text className="text-lg-medium">
             {"If you’re thinking about applying get in touch with Arkham on"}
-            <Link href={""} className="text-lg-bold">
-              LinkedIn
+            <Link href={""} className="text-lg-bold underline">
+              {" "}
+              LinkedIn{" "}
             </Link>
-            or email
-            <Link href={""} className="text-lg-bold">
+            or email{" "}
+            <Link href={""} className="text-lg-bold underline">
               shaun@arkhamtalent.com
             </Link>
           </Text>

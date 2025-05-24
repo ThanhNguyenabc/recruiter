@@ -4,10 +4,21 @@ import React, { useState } from "react";
 import Flex from "../_common/flex";
 import { Chip, cn } from "@nextui-org/react";
 
-const TABS = ["All jobs", "Fintech", "Healthcare", "Cybersecurity"];
+const JobTabs = ({
+  types,
+  onCLickItem,
+}: {
+  types: string[];
+  onCLickItem?: (type: string) => void;
+}) => {
+  const TABS = Array.from(new Set(["All jobs", ...types]));
 
-const JobTabs = () => {
   const [tabIndex, setTabIndex] = useState(0);
+
+  const pressItem = (index: number) => () => {
+    setTabIndex(index);
+    onCLickItem?.(TABS[index]);
+  };
 
   return (
     <Flex className="my-8 md:my-10 gap-2 flex-wrap">
@@ -19,7 +30,7 @@ const JobTabs = () => {
             " border-black border-1 cursor-pointer",
             tabIndex == index && " bg-black text-white"
           )}
-          onClick={() => setTabIndex(index)}
+          onClick={pressItem(index)}
           classNames={{ content: "text-md-bold" }}
         >
           {item}
@@ -29,4 +40,4 @@ const JobTabs = () => {
   );
 };
 
-export default JobTabs;
+export default React.memo(JobTabs);
