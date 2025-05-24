@@ -3,16 +3,20 @@ import JobDetailTemplate from "./JobDetailTemplate";
 import { getSEOTag } from "@/api/config.api";
 import { getJobBySlug } from "@/api/job.api";
 import { replaceTemplate } from "@/utils/strings";
+import { DefaultSEOTag } from "@/utils/constants";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  console.log(params.slug);
+  const { slug } = await params;
+
+  if (!slug) return DefaultSEOTag;
+
   const [seotag, jobDetail] = await Promise.all([
     getSEOTag("job-detail"),
-    getJobBySlug(params.slug),
+    getJobBySlug(slug),
   ]);
 
   seotag.title = replaceTemplate(seotag.title, {

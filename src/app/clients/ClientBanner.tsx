@@ -7,9 +7,21 @@ import Text from "@/components/_common/text";
 import CompanyInfo from "@/components/company/CompanyInfo";
 import { AppRoutes } from "@/utils/routes";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const ClientBanner = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    videoRef.current?.play();
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+    };
+  }, []);
+
   const scrollToFAQ = () => {
     document.getElementById("faq-section")?.scrollIntoView({
       behavior: "smooth",
@@ -17,6 +29,7 @@ const ClientBanner = () => {
       inline: "start",
     });
   };
+
   return (
     <Hero className="gap-8 lg:flex-row">
       <Flex className="flex-1 flex-col">
@@ -36,15 +49,15 @@ const ClientBanner = () => {
             Most asked questions
           </Button>
         </Flex>
-        
+
         <CompanyInfo />
       </Flex>
       <Flex className="w-full flex-1 h-[500px] lg:h-[759px] bg-neutral-200 rounded-2xl">
         <video
+          ref={videoRef}
           controls
           width={"100%"}
           src="/client-video.mp4"
-          autoPlay
           className=" w-full h-full aspect-square"
         />
       </Flex>
