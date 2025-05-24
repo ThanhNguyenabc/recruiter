@@ -31,3 +31,10 @@ export const getError = (field: string, errors: FieldErrors) => {
     errorMessage: (errors[field]?.["message"] as string) || "",
   };
 };
+
+export const replaceTemplate = (
+  template: string,
+  values: Record<string, string>
+) => {
+  return template.replace(/\{(\w+)\}/g, (_, key) => values[key] || "");
+};
