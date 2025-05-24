@@ -7,6 +7,7 @@ import {
   SecondEmail,
 } from "@/assets/icons";
 import { AppRoutes } from "./routes";
+import { SEOTag } from "@/models/seotag";
 
 export const Menu = [
   {
@@ -41,6 +42,8 @@ export enum BreakPoints {
   TABLET = 768,
   LAPTOP = 1024,
 }
+
+export const CACHE_TIME = 360;
 
 export const EMAIL = "shaun@arkhamtalent.com";
 export const PHONE = "(516) 852-4011";
@@ -163,3 +166,12 @@ Each search is tailored to your specific needs, ensuring we find candidates who 
 `,
   },
 ];
+
+export const DefaultSEOTag: SEOTag = {
+  title: "The ArKham Talent",
+  description:
+    "iscover top recruiter services with Arkham Talent. We help job seekers find their dream jobs and employers recruit the best talent. Get in touch with us today!",
+  keywords:
+    "recruiter, job search, recruitment services, job seekers, hiring, talent acquisition, employment, career",
+  favicon: "/favicon.png",
+};

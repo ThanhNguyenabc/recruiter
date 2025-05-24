@@ -6,6 +6,12 @@ import ContactForm from "@/components/contact/contact-form";
 import { EMAIL, PHONE } from "@/utils/constants";
 import { EmailIcon, IcLinkedin, PhoneIcon, Youtube } from "@/assets/icons";
 import Hero from "@/components/_common/hero";
+import { Metadata } from "next";
+import { getSEOTag } from "@/api/config.api";
+
+export function generateMetadata(): Promise<Metadata> {
+  return getSEOTag("clients");
+}
 
 const Data = [
   {
