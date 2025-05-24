@@ -110,7 +110,7 @@ const JobDetailTemplate = () => {
         </Flex>
 
         <JobDetailSection title="WORKING ARRANGEMENT">
-          <Text className="text-lg-medium">{JobType}</Text>
+          <Text className="text-lg-medium">{WorkingArrangement}</Text>
         </JobDetailSection>
         <JobDetailSection title="APPLY VIA E-MAIL">
           <Text className="text-lg-medium">
