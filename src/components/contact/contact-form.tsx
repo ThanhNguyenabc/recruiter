@@ -61,6 +61,7 @@ const CandidateSchema = z.object({
   email: z.string().email("This is not a valid email."),
   resume: z.any().refine((files) => files?.length == 1, "File is required."),
 });
+const MAXIMUM_UPLOAD_SIZE = 10 * 1024 * 1024; // 10 MB
 
 const ContactForm = ({
   children,
@@ -75,6 +76,8 @@ const ContactForm = ({
     handleSubmit,
     setValue,
     getValues,
+    setError,
+    clearErrors,
     formState: { errors = {} } = {},
   } = useForm({
     resolver: zodResolver(userType == 0 ? ClientFormSchema : CandidateSchema),
@@ -94,8 +97,17 @@ const ContactForm = ({
       contactType: users[userType].id,
       ...data,
     };
+
+    const uploadFile = new FormData();
+    uploadFile.append("file", data.resume[0]);
+
+    const fileResponse = await fetch("/api/upload-file", {
+      method: "POST",
+      body: uploadFile,
+    }).then((res) => res.json());
+
     await fetchData({
-      data: requestData,
+      data: { ...requestData, resume_link: fileResponse?.[0]?.url || "" },
     });
   };
 
@@ -218,6 +230,22 @@ const ContactForm = ({
             <Input
               {...register("resume")}
               {...getError("resume")}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                  const fileSize = files[0].size;
+
+                  if (fileSize > MAXIMUM_UPLOAD_SIZE) {
+                    console.log("File size exceeds 10 MB");
+                    setError("resume", {
+                      type: "manual",
+                      message: "File size should be less than 10 MB.",
+                    });
+                    return;
+                  }
+                  clearErrors("resume");
+                }
+              }}
               className="flex-1"
               placeholder="Resume"
               type="file"

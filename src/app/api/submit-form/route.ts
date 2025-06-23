@@ -18,7 +18,9 @@ export async function POST(request: Request) {
       RoleHiring: data["roleHiring"] || "",
       JobTitle: data["jobTitle"] || "",
       Company: data["company"] || "",
+      Resume_Url: data["resume_link"]  ? `${process.env.BE_URL}${data["resume_link"]}` : "",
     };
+
     const records = await submitContact(body);
 
     if (records)

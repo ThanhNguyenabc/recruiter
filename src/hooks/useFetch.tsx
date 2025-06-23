@@ -27,7 +27,12 @@ const useFetch = (url: string, type: "POST" | "GET") => {
       setData({ ...data, isLoading: true });
       const res = await fetch(url, {
         method: type,
-        body: type === "POST" ? JSON.stringify(requestData) : null,
+        body:
+          type === "POST"
+            ? requestData instanceof FormData
+              ? requestData
+              : JSON.stringify(requestData)
+            : null,
       });
 
       const responseData = await res.json();
