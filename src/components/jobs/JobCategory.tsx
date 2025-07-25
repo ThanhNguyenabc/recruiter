@@ -47,6 +47,7 @@ const CategoryItem = memo(({ title, description, ic: Icon }: Category) => {
     </Flex>
   );
 });
+CategoryItem.displayName = "CategoryItem";
 
 const JobCategories = () => {
   const router = useRouter();
@@ -82,5 +83,5 @@ const JobCategories = () => {
     </Hero>
   );
 };
-
+JobCategories.displayName = "JobCategories";
 export default memo(JobCategories);
