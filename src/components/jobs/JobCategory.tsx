@@ -18,19 +18,19 @@ const Categories: Category[] = [
     ic: IcFintech,
     title: "FINTECH",
     description:
-      "Create and personalize your own dashboards to display real-time data and insights that matter most to your business.",
+      "Fintech moves fast—and so do we. We place candidates who get the tech, the regs, and the pressure that comes with shaking up financial systems.",
   },
   {
     ic: IcHealth,
     title: "HEALTHTECH",
     description:
-      "Easily integrate with popular tools like Slack, Google Drive, Salesforce, and more to streamline your workflow.",
+      "We help Healthtech companies scale by finding mission-driven talent who can navigate complex regulations, innovate under pressure, and build products that actually improve lives.",
   },
   {
     ic: IcCyber,
     title: "CYBERSECURITY",
     description:
-      "Access detailed analytics and generate comprehensive reports to track your performance and business growth.",
+      "From threat hunters to compliance pros, we connect cybersecurity teams with sharp, no-BS candidates who understand the stakes and know how to protect what matters.",
   },
 ];
 
