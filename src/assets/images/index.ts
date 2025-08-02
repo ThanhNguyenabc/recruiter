@@ -16,4 +16,4 @@ export const Company4Img = "/images/company4.png";
 export const Company5Img = "/images/company5.png";
 export const Company6Img = "/images/company6.png";
 export const DefaultBlogImage = "/images/blog_image.png";
-export const AboutBannerImg = "/images/about-banner.png";
+export const AboutBannerImg = "/images/about-banner.webp";
