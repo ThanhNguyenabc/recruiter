@@ -40,6 +40,13 @@ const ClientFormSchema = z.object({
   salary: z.string().min(2, {
     message: "Salary is at least 2 numbers",
   }),
+  name: z.string().trim().min(3, {
+    message: "Your name is at least 3 characters",
+  }),
+  phone: z.string().min(7, {
+    message: "Phone number is at least 7 numbers",
+  }),
+  email: z.string().email("This is not a valid email."),
 });
 
 const CandidateSchema = z.object({
@@ -98,16 +105,19 @@ const ContactForm = ({
       ...data,
     };
 
-    const uploadFile = new FormData();
-    uploadFile.append("file", data.resume[0]);
+    if (users[userType].id === "candidate") {
+      const uploadFile = new FormData();
+      uploadFile.append("file", data.resume[0]);
 
-    const fileResponse = await fetch("/api/upload-file", {
-      method: "POST",
-      body: uploadFile,
-    }).then((res) => res.json());
+      const fileResponse = await fetch("/api/upload-file", {
+        method: "POST",
+        body: uploadFile,
+      }).then((res) => res.json());
+      requestData.resume_link = fileResponse?.[0]?.url || "";
+    }
 
     await fetchData({
-      data: { ...requestData, resume_link: fileResponse?.[0]?.url || "" },
+      data: requestData,
     });
   };
 
@@ -181,26 +191,6 @@ const ContactForm = ({
           </>
         ) : (
           <>
-            <Input
-              {...register("name")}
-              {...getError("name")}
-              placeholder="Name"
-            />
-
-            <Flex className="flex-col gap-8 md:flex-row">
-              <Input
-                {...register("email")}
-                {...getError("email")}
-                placeholder="Email"
-              />
-              <Input
-                {...register("phone")}
-                {...getError("phone")}
-                placeholder="Phone number"
-                value={getValues("phone")}
-                onChange={formatPhone}
-              />
-            </Flex>
             <Flex className="flex-col gap-8 md:flex-row">
               <Input
                 {...register("location")}
@@ -215,6 +205,22 @@ const ContactForm = ({
             </Flex>
           </>
         )}
+        <Input {...register("name")} {...getError("name")} placeholder="Name" />
+
+        <Flex className="flex-col gap-8 md:flex-row">
+          <Input
+            {...register("email")}
+            {...getError("email")}
+            placeholder="Email"
+          />
+          <Input
+            {...register("phone")}
+            {...getError("phone")}
+            placeholder="Phone number"
+            value={getValues("phone")}
+            onChange={formatPhone}
+          />
+        </Flex>
         <Input
           {...register("salary")}
           {...getError("salary")}
