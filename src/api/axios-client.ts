@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = process.env.BE_API;
+export const BASE_URL = `${process.env.BE_URL}/api`;
 
 export const BASE_HEADERS = {
   "content-Type": "application/json",

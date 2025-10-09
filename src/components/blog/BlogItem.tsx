@@ -32,12 +32,13 @@ const BlogItem = ({
       )}
     >
       <Image
-        width={200}
-        height={200}
+        width={250}
+        height={250}
         draggable={false}
         src={thumbnail || DefaultBlogImage}
         alt=""
-        className=" w-full rounded-lg"
+        quality={100}
+        className="w-full md:w-[300px] md:h-[200px] object-contain rounded-lg"
       />
       <Flex className="flex-col gap-2">
         <Text type="h3" className="heading-3">
@@ -79,6 +80,7 @@ const NoDescription = ({
         draggable={false}
         src={thumbnail || DefaultBlogImage}
         alt=""
+        quality={100}
         className="w-full rounded-lg lg:w-[250px] lg:aspect-square object-cover"
       />
       <Flex className="flex-col gap-2 justify-between">
