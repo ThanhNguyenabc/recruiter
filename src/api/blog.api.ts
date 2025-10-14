@@ -7,7 +7,7 @@ export const getAllBlogs = async (num: number = 100): Promise<Blog[]> => {
       `/ar-kham-blogs?pagination[pageSize]=${num}&populate[thumbnail][fields][0]=formats`
     );
 
-    return blogs.data?.data?.map((item: any) => ({
+    return blogs.data?.data?.map((item: Record<string,any>) => ({
       ...item,
       thumbnail: item?.thumbnail
         ? `${process.env.BE_URL}${item?.thumbnail?.formats?.medium?.url}`
