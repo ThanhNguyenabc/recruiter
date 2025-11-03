@@ -11,7 +11,7 @@ import Text from "../_common/text";
 import Button from "../_common/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { convertStringToCurrency, formatPhoneNUmber } from "@/utils/strings";
+import { formatPhoneNUmber } from "@/utils/strings";
 import { FieldValues, useForm } from "react-hook-form";
 import useFetch from "@/hooks/useFetch";
 import { useToast } from "../_common/toast/Toast";
@@ -90,7 +90,7 @@ const ContactForm = ({
       contactType: users[userType].id,
       ...data,
     };
- 
+
     if (users[userType].id === "candidate") {
       const uploadFile = new FormData();
       uploadFile.append("file", data.resume[0]);
@@ -117,14 +117,6 @@ const ContactForm = ({
       isInvalid: true,
       errorMessage: (errors[field]?.["message"] as string) || "",
     };
-  };
-
-  const formatSalary = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = convertStringToCurrency(event.target.value);
-    setValue("salary", newValue, {
-      shouldValidate: true,
-      shouldDirty: true,
-    });
   };
 
   const formatPhone = (event: ChangeEvent<HTMLInputElement>) => {
