@@ -16,6 +16,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import useFetch from "@/hooks/useFetch";
 import { useToast } from "../_common/toast/Toast";
 import { SUCCESS_MESSAGE } from "@/utils/constants";
+
 const users = [
   {
     id: "client",
@@ -28,18 +29,10 @@ const users = [
 ];
 
 const ClientFormSchema = z.object({
-  jobTitle: z.string().trim().min(5, {
-    message: "Job Title is at least 5 characters",
-  }),
   company: z.string().trim().min(8, {
     message: "Company is at least 10 characters",
   }),
-  roleHiring: z.string().trim().min(5, {
-    message: "Role Hiring is at least 5 characters",
-  }),
-  salary: z.string().min(2, {
-    message: "Salary is at least 2 numbers",
-  }),
+
   name: z.string().trim().min(3, {
     message: "Your name is at least 3 characters",
   }),
@@ -53,21 +46,14 @@ const CandidateSchema = z.object({
   name: z.string().trim().min(3, {
     message: "Your name is at least 3 characters",
   }),
-  location: z.string().trim().min(5, {
-    message: "Company is at least 5 charactesr",
-  }),
-  roleSeeking: z.string().trim().min(5, {
-    message: "Role Hiring is at least 5  characters",
-  }),
-  salary: z.string().min(2, {
-    message: "Salary is at least 2 numbers",
-  }),
+
   phone: z.string().min(7, {
     message: "Phone number is at least 7 numbers",
   }),
   email: z.string().email("This is not a valid email."),
   resume: z.any().refine((files) => files?.length == 1, "File is required."),
 });
+
 const MAXIMUM_UPLOAD_SIZE = 10 * 1024 * 1024; // 10 MB
 
 const ContactForm = ({
@@ -104,7 +90,7 @@ const ContactForm = ({
       contactType: users[userType].id,
       ...data,
     };
-
+ 
     if (users[userType].id === "candidate") {
       const uploadFile = new FormData();
       uploadFile.append("file", data.resume[0]);
@@ -173,37 +159,13 @@ const ContactForm = ({
         {users[userType]?.id == "client" ? (
           <>
             <Input
-              {...register("jobTitle")}
-              {...getError("jobTitle")}
-              placeholder="Job title"
-            />
-
-            <Input
               {...register("company")}
               {...getError("company")}
               placeholder="Company"
             />
-            <Input
-              {...register("roleHiring")}
-              {...getError("roleHiring")}
-              placeholder="Role Your're hiring for"
-            />
           </>
         ) : (
-          <>
-            <Flex className="flex-col gap-8 md:flex-row">
-              <Input
-                {...register("location")}
-                {...getError("location")}
-                placeholder="Location"
-              />
-              <Input
-                {...register("roleSeeking")}
-                {...getError("roleSeeking")}
-                placeholder="Role you’re seeking"
-              />
-            </Flex>
-          </>
+          <></>
         )}
         <Input {...register("name")} {...getError("name")} placeholder="Name" />
 
@@ -221,14 +183,6 @@ const ContactForm = ({
             onChange={formatPhone}
           />
         </Flex>
-        <Input
-          {...register("salary")}
-          {...getError("salary")}
-          endContent={<span className="font-semibold">$</span>}
-          placeholder="Salary"
-          value={getValues("salary")}
-          onChange={formatSalary}
-        />
 
         {users[userType]?.id == "candidate" && (
           <Flex className="flex-row gap-4 items-center">
