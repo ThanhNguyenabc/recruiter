@@ -41,7 +41,7 @@ const ContactPage = () => {
     <Hero className="flex-col w-full items-start gap-10 md:gap-20">
       <Flex className="flex-col gap-6 lg:max-w-[600px]">
         <Text type="h1" className="heading-1 whitespace-pre-line">
-          {`READY TO START?\nCONTACT US`}
+          {`Contact us to get started`}
         </Text>
         <Text className="text-lg-medium text-secondary">
           {
