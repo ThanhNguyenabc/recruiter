@@ -17,18 +17,28 @@ const Footer = () => {
         alt="footer-logo"
         quality={100}
       />
-      <Flex className="gap-6">
-        {Socials.map(({ icon: Icon, newTab, link, type, id }) => (
-          <Link
-            className="flex flex-row gap-4 items-center"
-            key={id}
-            href={link}
-            target={newTab ? "_blank" : "_parent"}
-          >
-            <Icon className=" text-[48px]" />
-            {type != "social" && <Text type="p">{link}</Text>}
-          </Link>
-        ))}
+      <Flex className="flex-col md:flex-row gap-4 items-center">
+        <Link
+          className="flex flex-row gap-4 items-center underline"
+          key={"pdf-doc"}
+          href={"/Behind-the-Scoreboard.pdf"}
+          target={"_blank"}
+        >
+          <Text type="span">{"The Arkham Sales Hiring Standard"}</Text>
+        </Link>
+        <Flex className="gap-6">
+          {Socials.map(({ icon: Icon, newTab, link, type, id }) => (
+            <Link
+              className="flex flex-row gap-4 items-center"
+              key={id}
+              href={link}
+              target={newTab ? "_blank" : "_parent"}
+            >
+              <Icon className=" text-[48px]" />
+              {type != "social" && <Text type="p">{link}</Text>}
+            </Link>
+          ))}
+        </Flex>
       </Flex>
     </Hero>
   );
