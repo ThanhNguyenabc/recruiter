@@ -21,7 +21,7 @@ const BlogList = () => {
 
   return (
     <Flex className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-      {blogs?.map((item: Blog, index: number) => {
+      {blogs?.map((item: Blog) => {
         return (
           <BlogItem
             key={item.id}
