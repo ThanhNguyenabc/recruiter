@@ -6,8 +6,10 @@ export const getAllBlogs = async (num: number = 100): Promise<Blog[]> => {
     const blogs = await AxiosClient.get(
       `/ar-kham-blogs?pagination[pageSize]=${num}&populate[thumbnail][fields][0]=formats`
     );
+    console.log("api call");
+    console.log(blogs.data?.data);
 
-    return blogs.data?.data?.map((item: Record<string,any>) => ({
+    return blogs.data?.data?.map((item: Record<string, any>) => ({
       ...item,
       thumbnail: item?.thumbnail
         ? `${process.env.BE_URL}${item?.thumbnail?.formats?.medium?.url}`

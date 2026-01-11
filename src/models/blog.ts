@@ -7,4 +7,5 @@ export type Blog = {
   short_description?: string;
   createdAt: string;
   thumbnail?: string;
+  pdf_link?: string;
 };

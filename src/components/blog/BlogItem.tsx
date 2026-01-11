@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   className?: string;
+  imageClassName?: string;
 } & Blog;
 
 const BlogItem = ({
@@ -21,6 +22,7 @@ const BlogItem = ({
   thumbnail,
   slug,
   className,
+  imageClassName,
 }: Props) => {
   const router = useRouter();
   return (
@@ -38,14 +40,17 @@ const BlogItem = ({
         src={thumbnail || DefaultBlogImage}
         alt=""
         quality={100}
-        className="w-full md:w-[300px] md:h-[200px] object-contain rounded-lg"
+        className={cn(
+          "w-full object-contain rounded-lg md:w-[300px] md:h-[200px]",
+          imageClassName
+        )}
       />
-      <Flex className="flex-col gap-2">
+      <Flex className="flex-col gap-2 h-full">
         <Text type="h3" className="heading-3">
           {title}
         </Text>
 
-        <Text type="p" className="text-lg-medium">
+        <Text type="p" className="text-lg-medium flex-1">
           {short_description}
         </Text>
 

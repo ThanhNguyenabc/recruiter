@@ -11,13 +11,6 @@ const CTAFooter = () => {
       <Text className="heading-2 md:heading-1 text-center">
         {`LET'S CONNECT TODAY`}
       </Text>
-      <Text
-        type="h2"
-        className="text-gray-400 text-md-medium md:text-lg-medium text-center"
-      >
-        I welcome all inquiries WITH ARMS WIDE OPENNNNNN! ( Creed Classic. No
-        refunds for emotional damage.)
-      </Text>
       <Link href={AppRoutes.CONTACT}>
         <Button color="success" className="text-white">
           Contact us

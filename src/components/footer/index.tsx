@@ -18,14 +18,14 @@ const Footer = () => {
         quality={100}
       />
       <Flex className="flex-col md:flex-row gap-4 items-center">
-        <Link
+        {/* <Link
           className="flex flex-row gap-4 items-center underline"
           key={"pdf-doc"}
           href={"/Behind-the-Scoreboard.pdf"}
           target={"_blank"}
         >
           <Text type="span">{"The Arkham Sales Hiring Standard"}</Text>
-        </Link>
+        </Link> */}
         <Flex className="gap-6">
           {Socials.map(({ icon: Icon, newTab, link, type, id }) => (
             <Link

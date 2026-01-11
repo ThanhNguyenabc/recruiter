@@ -20,7 +20,7 @@ const HomePage = () => {
               type="h1"
               className="heading-2 whitespace-pre-line md:heading-1"
             >
-              {`JOBS FOR REAL PEOPLE\n—NOT ROBOTS`}
+              {`GTM HIRING FOR SAAS COMPANIES`}
             </Text>
             <HomeActions />
           </Flex>

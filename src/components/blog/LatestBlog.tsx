@@ -8,29 +8,27 @@ import Text from "../_common/text";
 import { Blog } from "@/models/blog";
 
 const fetchBlog = () =>
-  fetch("/api/blog?limit=3")
+  fetch("/api/blog?limit=4")
     .then((res) => res.json())
     .then((res) => res.data);
 
 const BlogList = () => {
   const [blogs, setData] = useState([]);
+
   useEffect(() => {
     fetchBlog().then((res) => setData(res));
   }, []);
 
   return (
-    <Flex className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
+    <Flex className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
       {blogs?.map((item: Blog, index: number) => {
-        if (index == 0)
-          return (
-            <BlogItem
-              key={item.id}
-              {...item}
-              className={`sm:col-span-2 md:row-span-2 lg:col-span-1`}
-            />
-          );
-
-        return <BlogItem.NoDescription key={item.id} {...item} />;
+        return (
+          <BlogItem
+            key={item.id}
+            {...item}
+            imageClassName="md:w-full md:h-[4/3] object-cover"
+          />
+        );
       })}
     </Flex>
   );
