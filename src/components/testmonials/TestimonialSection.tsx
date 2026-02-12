@@ -7,7 +7,7 @@ import Flex from "../_common/flex";
 const TestimonialSection = () => {
   return (
     <Hero className="gap-10">
-      <Text className=" text-success font-semibold text-[40px] leading-[48px] text-center">
+      <Text className="text-2xl text-success font-semibold lg:text-[40px] leading-[48px] text-center">
         {`“Arkham Talent made the process enjoyable and fun which makes it a unique but a productive experience. They bring the 'people-person' touch on top of the technical chops that separates the 'ok' from the 'phenomenal'. They are a pleasure to work with and would be a valuable asset for any company or candidate.”`}
       </Text>
       <Flex className="flex-col gap-2 items-center">

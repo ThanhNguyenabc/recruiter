@@ -6,10 +6,14 @@ import Hero from "@/components/_common/hero";
 import Text from "@/components/_common/text";
 import CompanyInfo from "@/components/company/CompanyInfo";
 import { AppRoutes } from "@/utils/routes";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ClientBanner = () => {
+  const router = useRouter();
+  const gotoContactPage = () => {
+    router.push(AppRoutes.CONTACT);
+  };
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -38,9 +42,10 @@ const ClientBanner = () => {
         </Text>
 
         <Flex className="gap-4 mt-10 mb-20">
-          <Link href={AppRoutes.CONTACT}>
-            <Button color="primary">Contact us</Button>
-          </Link>
+          <Button color="primary" onPress={gotoContactPage}>
+            Contact us
+          </Button>
+
           <Button variant="bordered" onPress={scrollToFAQ}>
             Most asked questions
           </Button>

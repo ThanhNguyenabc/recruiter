@@ -103,7 +103,7 @@ const JobDetailTemplate = () => {
       <Hero className="gap-10 text-secondary  lg:max-w-[800px] mx-auto">
         <Flex
           className={cn(
-            "flex-col p-0 prose  prose-headings:heading-3 prose-headings:uppercase max-w-full"
+            "flex-col p-0 prose  prose-headings:heading-3 prose-headings:uppercase max-w-full",
           )}
         >
           {HTMLReactParseer(JobDescription || "")}

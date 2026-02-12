@@ -8,6 +8,7 @@ import { EmailIcon, IcLinkedin, PhoneIcon, Youtube } from "@/assets/icons";
 import Hero from "@/components/_common/hero";
 import { Metadata } from "next";
 import { getSEOTag } from "@/api/config.api";
+import Link from "next/link";
 
 export function generateMetadata(): Promise<Metadata> {
   return getSEOTag("clients");
@@ -18,21 +19,29 @@ const Data = [
     content: EMAIL,
     icon: EmailIcon,
     title: "Email to us",
+    link: `mailto:${EMAIL}`,
+    newTab: false,
   },
   {
     content: PHONE,
     icon: PhoneIcon,
     title: "Call us now",
+    link: `tel:${PHONE}`,
+    newTab: false,
   },
   {
-    content: "arkhamtalent",
+    content: "@ArkhamTalent",
     icon: Youtube,
+    link: "https://www.youtube.com/@ArkhamTalent",
     title: "Youtube",
+    newTab: true,
   },
   {
     content: "arkhamtalent",
     icon: IcLinkedin,
     title: "Linkedin",
+    link: "https://www.linkedin.com/company/arkhamtalent/",
+    newTab: true,
   },
 ];
 
@@ -50,17 +59,19 @@ const ContactPage = () => {
         </Text>
       </Flex>
 
-      <Flex className="w-full flex-col  items-start gap-12 md:flex-row md:gap-20">
+      <Flex className="w-full flex-col items-start gap-12 md:flex-row md:gap-20">
         <ContactForm />
-        <Flex className="flex-col gap-4 md:gap-10">
-          {Data.map(({ title, content, icon: Icon }) => (
+        <Flex className="flex-col gap-4 md:gap-10 w-full">
+          {Data.map(({ title, content, icon: Icon, link, newTab }) => (
             <Flex key={title} className="flex-row gap-2 items-center ">
               <Flex className="p-4 bg-success rounded-xl h-14 w-14 justify-center">
                 <Icon className=" text-white" />
               </Flex>
-              <Flex className="flex-col">
+              <Flex className="flex-col flex-1 w-full">
                 <Text className="text-success text-md-medium">{title}</Text>
-                <Text className="text-lg-bold">{content}</Text>
+                <Link href={link} target={newTab ? "_blank" : ""}>
+                  <Text className="text-lg-bold">{content}</Text>
+                </Link>
               </Flex>
             </Flex>
           ))}
