@@ -7,8 +7,6 @@ Airtable.configure({
 const BASE_ID = `${process.env.AIR_TABLE_BASE_ID}`;
 
 const sendToAirtable = async (table: string, body: object) => {
-  console.log(BASE_ID);
-
   try {
     const data = { ...body };
     const base = Airtable.base(BASE_ID);

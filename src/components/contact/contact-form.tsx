@@ -188,7 +188,6 @@ const ContactForm = ({
                   const fileSize = files[0].size;
 
                   if (fileSize > MAXIMUM_UPLOAD_SIZE) {
-                    console.log("File size exceeds 10 MB");
                     setError("resume", {
                       type: "manual",
                       message: "File size should be less than 10 MB.",

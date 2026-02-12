@@ -1,19 +1,14 @@
 "use client";
 
+import ContactButton from "@/components/_common/ContactButton";
 import Button from "@/components/_common/button";
 import Flex from "@/components/_common/flex";
 import Hero from "@/components/_common/hero";
 import Text from "@/components/_common/text";
 import CompanyInfo from "@/components/company/CompanyInfo";
-import { AppRoutes } from "@/utils/routes";
-import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ClientBanner = () => {
-  const router = useRouter();
-  const gotoContactPage = () => {
-    router.push(AppRoutes.CONTACT);
-  };
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -42,10 +37,7 @@ const ClientBanner = () => {
         </Text>
 
         <Flex className="gap-4 mt-10 mb-20">
-          <Button color="primary" onPress={gotoContactPage}>
-            Contact us
-          </Button>
-
+          <ContactButton />
           <Button variant="bordered" onPress={scrollToFAQ}>
             Most asked questions
           </Button>

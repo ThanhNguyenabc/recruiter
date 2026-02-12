@@ -1,10 +1,8 @@
-import Button from "@/components/_common/button";
+import ContactButton from "@/components/_common/ContactButton";
 import Card from "@/components/_common/card";
 import Flex from "@/components/_common/flex";
 import Hero from "@/components/_common/hero";
 import Text from "@/components/_common/text";
-import { AppRoutes } from "@/utils/routes";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 const HOW_WORKS = [
@@ -39,10 +37,6 @@ const HOW_WORKS = [
   },
 ];
 const HowShouldWork = () => {
-  const router = useRouter();
-  const gotoContactPage = () => {
-    router.push(AppRoutes.CONTACT);
-  };
   return (
     <Hero bgClassName="bg-success" className="gap-4 md:gap-10 lg:gap-20">
       <Text type="h2" className="heading-2 text-white text-center">
@@ -67,9 +61,7 @@ const HowShouldWork = () => {
           {`Don't take the gamble with a wrong hire. We take the guesswork out of
           recruiting and finding ready candidates to make an impact.`}
         </Text>
-        <Button color="primary" onPress={gotoContactPage}>
-          Contact us
-        </Button>
+        <ContactButton />
       </Flex>
     </Hero>
   );
