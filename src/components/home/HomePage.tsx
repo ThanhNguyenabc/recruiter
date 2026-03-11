@@ -24,14 +24,14 @@ const HomePage = () => {
             </Text>
             <HomeActions />
           </Flex>
-          <Flex className="justify-center md:justify-end">
+          <Flex className="justify-center md:justify-end drop-shadow-lg shadow-md rounded-2xl overflow-hidden">
             <Image
               priority
               alt="banner-image"
               src={HomeBanner}
               width={500}
               height={500}
-              className=" object-contain"
+              className=" object-cover "
             />
           </Flex>
         </Flex>
