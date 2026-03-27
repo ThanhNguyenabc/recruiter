@@ -35,13 +35,10 @@ export const getBlogBySlug = async (slug: string) => {
     `/ar-kham-blogs?filters[slug][$eq]=${slug}`,
   );
   const blog = response.data?.["data"]?.[0] as Blog;
-  if (blog) {
-    if (blog.media_link && !blog.media_link.startsWith("http")) {
-      blog.media_link = `${process.env.BE_URL}${blog.media_link.startsWith("/") ? "" : "/"}${blog.media_link}`;
-    }
-    if (blog.pdf_link && !blog.pdf_link.startsWith("http")) {
-      blog.pdf_link = `${process.env.BE_URL}${blog.pdf_link.startsWith("/") ? "" : "/"}${blog.pdf_link}`;
-    }
+  let mediaLink = blog.media_link || blog.pdf_link;
+  if (!mediaLink?.startsWith("http")) {
+    mediaLink = `${process.env.BE_URL}/${mediaLink}`;
   }
+  blog.media_link = mediaLink;
   return blog;
 };

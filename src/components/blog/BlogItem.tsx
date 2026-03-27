@@ -101,6 +101,6 @@ const NoDescription = ({
   );
 };
 
-BlogItem.NoDescription = NoDescription;
+export const BlogItemNoDescription = NoDescription;
 
 export default BlogItem;

@@ -1,23 +1,19 @@
-import React, { useMemo } from "react";
+import React from "react";
 import Hero from "../_common/hero";
 import Text from "../_common/text";
 import Flex from "../_common/flex";
 import HTMLReactParser from "html-react-parser/lib/index";
 import { Blog } from "@/models/blog";
 import { getEmbedUrl, getMediaTypeFromUrl } from "@/utils/strings";
+import OtherArticle from "./OtherArticle";
 
 const BlogDetail = ({ blog }: { blog: Blog }) => {
-  const mediaType = useMemo(() => {
-    if (!blog.media_link) return null;
-    return getMediaTypeFromUrl(blog.media_link);
-  }, [blog.media_link]);
-
-  const embedUrl = useMemo(() => {
-    if (!mediaType) return undefined;
-    return getEmbedUrl(blog.media_link || "", mediaType);
-  }, [blog.media_link, mediaType]);
-
   if (!blog) return <></>;
+
+  const mediaType = blog.media_link
+    ? getMediaTypeFromUrl(blog.media_link)
+    : null;
+  const embedUrl = getEmbedUrl(blog.media_link || "", mediaType || "");
   return (
     <Hero>
       <Flex className="mb-10">
@@ -62,6 +58,8 @@ const BlogDetail = ({ blog }: { blog: Blog }) => {
       <Flex className="flex-col prose !max-w-none">
         {HTMLReactParser(blog.content || "")}
       </Flex>
+
+      <OtherArticle excludeSlug={blog.slug} />
     </Hero>
   );
 };
