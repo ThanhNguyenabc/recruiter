@@ -13,7 +13,7 @@ const BlogDetail = ({ blog }: { blog: Blog }) => {
   }, [blog.media_link]);
 
   const embedUrl = useMemo(() => {
-    if (!mediaType) return null;
+    if (!mediaType) return undefined;
     return getEmbedUrl(blog.media_link || "", mediaType);
   }, [blog.media_link, mediaType]);
 
