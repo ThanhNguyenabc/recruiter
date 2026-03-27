@@ -10,16 +10,12 @@ export async function POST(request: Request) {
 
     const email = data["email"] || "";
     const phone = data["phone"] || "";
-    const contactType = data["contactType"] || "";
 
-    const isDuplicate = await isDuplicateContact(email, phone, contactType);
+    const isDuplicate = await isDuplicateContact(email, phone);
 
     if (isDuplicate) {
       return NextResponse.json(
-        {
-          error:
-            "A contact with this email or phone number already exists for this role.",
-        },
+        { error: "A contact with this email or phone number already exists." },
         { status: 409 },
       );
     }

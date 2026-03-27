@@ -72,11 +72,10 @@ export const isDuplicateJobApplication = async (
 export const isDuplicateContact = async (
   email: string,
   phone: string,
-  type: string,
 ): Promise<boolean> => {
   try {
     const response = await AxiosClient.get(
-      `/contacts?filters[$and][0][$or][0][Email][$eq]=${email}&filters[$and][0][$or][1][Phone][$eq]=${phone}&filters[$and][1][Type][$eq]=${type}`,
+      `/contacts?filters[$or][0][Email][$eq]=${email}&filters[$or][1][Phone][$eq]=${phone}`,
     );
     return (response.data?.["data"]?.length || 0) > 0;
   } catch (error) {
