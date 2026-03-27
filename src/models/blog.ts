@@ -8,4 +8,5 @@ export type Blog = {
   createdAt: string;
   thumbnail?: string;
   pdf_link?: string;
+  media_link?: string;
 };

@@ -30,7 +30,7 @@ const BlogItem = ({
       onClick={() => router.push(`/blog/${slug}`)}
       className={cn(
         "flex-col p-4 bg-white cursor-pointer rounded-lg gap-3",
-        className
+        className,
       )}
     >
       <Image
@@ -42,7 +42,7 @@ const BlogItem = ({
         quality={100}
         className={cn(
           "w-full object-contain rounded-lg md:w-[300px] md:h-[200px]",
-          imageClassName
+          imageClassName,
         )}
       />
       <Flex className="flex-col gap-2 h-full">
@@ -76,7 +76,7 @@ const NoDescription = ({
       onClick={() => router.push(`/blog/${slug}`)}
       className={cn(
         "flex-col lg:flex-row p-4 cursor-pointer bg-white rounded-lg gap-3",
-        className
+        className,
       )}
     >
       <Image
