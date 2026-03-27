@@ -20,10 +20,29 @@ import { SUCCESS_MESSAGE } from "@/utils/constants";
 import { useToast } from "../_common/toast/Toast";
 
 const FormSchema = z.object({
-  name: z.string().trim().min(3, {
-    message: "Your name is at least 3 characters",
-  }),
-  email: z.string().email("This is not a valid email."),
+  name: z
+    .string()
+    .trim()
+    .min(3, {
+      message: "Full name must be at least 3 characters",
+    })
+    .refine((username: string) => {
+      if (!/^[a-zA-Z0-9._]{3,}$/.test(username)) return true;
+      return false;
+    }, "Please enter a realistic name (e.g., John Doe)"),
+
+  email: z
+    .string()
+    .email("Please enter a valid email address.")
+    .refine(
+      (val) => {
+        const localPart = val.split("@")[0];
+        return !/^[A-Z]{3,}/.test(localPart) && !/(.)\1\1\1/.test(localPart);
+      },
+      {
+        message: "please use a normal address",
+      },
+    ),
   phone: z.string().min(7, {
     message: "Phone number is at least 7 numbers",
   }),
@@ -43,7 +62,10 @@ const JobApplyForm = forwardRef<
   } = useForm({
     resolver: zodResolver(FormSchema),
   });
-  const { data, isLoading, fetchData, error } = useFetch("/api/job-contact", "POST");
+  const { data, isLoading, fetchData, error } = useFetch(
+    "/api/job-contact",
+    "POST",
+  );
   const { showToast } = useToast();
 
   useEffect(() => {
