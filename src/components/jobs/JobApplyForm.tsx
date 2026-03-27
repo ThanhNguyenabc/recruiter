@@ -43,17 +43,23 @@ const JobApplyForm = forwardRef<
   } = useForm({
     resolver: zodResolver(FormSchema),
   });
-  const { data, isLoading, fetchData } = useFetch("/api/job-contact", "POST");
+  const { data, isLoading, fetchData, error } = useFetch("/api/job-contact", "POST");
   const { showToast } = useToast();
 
   useEffect(() => {
-    if (data && !isLoading) {
+    if (data && !isLoading && !error) {
       showToast({
         message: SUCCESS_MESSAGE,
         type: "success",
       });
     }
-  }, [data, isLoading, showToast]);
+    if (error && !isLoading) {
+      showToast({
+        message: error,
+        type: "error",
+      });
+    }
+  }, [data, isLoading, showToast, error]);
 
   const submitForm = async (data: FieldValues) => {
     const requestData: { [key: string]: unknown } = {

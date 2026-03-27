@@ -1,4 +1,4 @@
-import { submitContact } from "@/api/job.api";
+import { isDuplicateContact, submitContact } from "@/api/job.api";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -7,18 +7,37 @@ export async function POST(request: Request) {
     if (!data) {
       return NextResponse.json({ error: "Data is missing" }, { status: 403 });
     }
+
+    const email = data["email"] || "";
+    const phone = data["phone"] || "";
+    const contactType = data["contactType"] || "";
+
+    const isDuplicate = await isDuplicateContact(email, phone, contactType);
+
+    if (isDuplicate) {
+      return NextResponse.json(
+        {
+          error:
+            "A contact with this email or phone number already exists for this role.",
+        },
+        { status: 409 },
+      );
+    }
+
     const body = {
       Type: data["contactType"],
       Name: data["name"] || "",
-      Email: data["email"] || "",
-      Phone: data["phone"] || "",
+      Email: email,
+      Phone: phone,
       Location: data["location"] || "",
       RoleSeeking: data["roleSeeking"] || "",
       Salary: data["salary"] || "",
       RoleHiring: data["roleHiring"] || "",
       JobTitle: data["jobTitle"] || "",
       Company: data["company"] || "",
-      Resume_Url: data["resume_link"]  ? `${process.env.BE_URL}${data["resume_link"]}` : "",
+      Resume_Url: data["resume_link"]
+        ? `${process.env.BE_URL}${data["resume_link"]}`
+        : "",
     };
 
     const records = await submitContact(body);
@@ -28,8 +47,5 @@ export async function POST(request: Request) {
   } catch (error: unknown) {
     console.log(error);
   }
-  return NextResponse.json(
-    { error: "Something was happended" },
-    { status: 500 }
-  );
+  return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
 }

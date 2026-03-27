@@ -36,29 +36,26 @@ const useFetch = (url: string, type: "POST" | "GET") => {
       });
 
       const responseData = await res.json();
-      switch (res.status) {
-        case 200:
-          setData({
-            error: null,
-            pRequestData: requestData,
-            data: responseData,
-            isLoading: false,
-          });
-          return;
-        case 500:
-          setData({
-            error: "Error",
-            data: null,
-            pRequestData: null,
-            isLoading: false,
-          });
-          return;
+      if (res.ok) {
+        setData({
+          error: null,
+          pRequestData: requestData,
+          data: responseData,
+          isLoading: false,
+        });
+      } else {
+        setData({
+          error: responseData.error || "Something went wrong",
+          data: null,
+          pRequestData: null,
+          isLoading: false,
+        });
       }
     } catch {
       setData({
         data: null,
         pRequestData: null,
-        error: "Error",
+        error: "Network error",
         isLoading: false,
       });
     }
