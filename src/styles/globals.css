@@ -14,8 +14,6 @@ body {
 }
 
 @layer utilities {
-
-  
   .heading-1 {
     @apply text-[64px] font-[900] leading-[64px];
   }
@@ -31,15 +29,15 @@ body {
   .heading-4 {
     @apply text-lg font-[900];
   }
-  
+
   .text-xl {
     @apply text-lg font-semibold;
   }
-  
+
   .text-xl-semibold {
     @apply text-lg font-semibold;
   }
-  
+
   /******** Text Large *********8*/
   .text-lg-bold {
     @apply text-base font-[900];
@@ -64,5 +62,9 @@ body {
 
   .text-md-medium {
     @apply text-sm font-medium;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
   }
 }

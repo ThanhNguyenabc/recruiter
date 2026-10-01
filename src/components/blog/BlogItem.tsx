@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   className?: string;
+  imageClassName?: string;
 } & Blog;
 
 const BlogItem = ({
@@ -21,6 +22,7 @@ const BlogItem = ({
   thumbnail,
   slug,
   className,
+  imageClassName,
 }: Props) => {
   const router = useRouter();
   return (
@@ -28,23 +30,27 @@ const BlogItem = ({
       onClick={() => router.push(`/blog/${slug}`)}
       className={cn(
         "flex-col p-4 bg-white cursor-pointer rounded-lg gap-3",
-        className
+        className,
       )}
     >
       <Image
-        width={200}
-        height={200}
+        width={250}
+        height={250}
         draggable={false}
         src={thumbnail || DefaultBlogImage}
         alt=""
-        className=" w-full rounded-lg"
+        quality={100}
+        className={cn(
+          "w-full object-contain rounded-lg md:w-[300px] md:h-[200px]",
+          imageClassName,
+        )}
       />
-      <Flex className="flex-col gap-2">
+      <Flex className="flex-col gap-2 h-full">
         <Text type="h3" className="heading-3">
           {title}
         </Text>
 
-        <Text type="p" className="text-lg-medium">
+        <Text type="p" className="text-lg-medium flex-1">
           {short_description}
         </Text>
 
@@ -70,7 +76,7 @@ const NoDescription = ({
       onClick={() => router.push(`/blog/${slug}`)}
       className={cn(
         "flex-col lg:flex-row p-4 cursor-pointer bg-white rounded-lg gap-3",
-        className
+        className,
       )}
     >
       <Image
@@ -79,6 +85,7 @@ const NoDescription = ({
         draggable={false}
         src={thumbnail || DefaultBlogImage}
         alt=""
+        quality={100}
         className="w-full rounded-lg lg:w-[250px] lg:aspect-square object-cover"
       />
       <Flex className="flex-col gap-2 justify-between">
@@ -94,6 +101,6 @@ const NoDescription = ({
   );
 };
 
-BlogItem.NoDescription = NoDescription;
+export const BlogItemNoDescription = NoDescription;
 
 export default BlogItem;

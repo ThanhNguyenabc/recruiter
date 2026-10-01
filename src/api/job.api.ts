@@ -54,6 +54,7 @@ export const submitContact = async (data: {
   return false;
 };
 
+<<<<<<< HEAD
 export const submitMaintenanceContact = async (data: {
   Name: string;
   Email: string;
@@ -72,4 +73,34 @@ export const submitMaintenanceContact = async (data: {
     console.log(error);
   }
   return false;
+=======
+export const isDuplicateJobApplication = async (
+  email: string,
+  phone: string,
+): Promise<boolean> => {
+  try {
+    const response = await AxiosClient.get(
+      `/job-applications?filters[$or][0][Email][$eq]=${email}&filters[$or][1][Phone][$eq]=${phone}`,
+    );
+    return (response.data?.["data"]?.length || 0) > 0;
+  } catch (error) {
+    console.error("Duplicate check failed:", error);
+    return false;
+  }
+};
+
+export const isDuplicateContact = async (
+  email: string,
+  phone: string,
+): Promise<boolean> => {
+  try {
+    const response = await AxiosClient.get(
+      `/contacts?filters[$or][0][Email][$eq]=${email}&filters[$or][1][Phone][$eq]=${phone}`,
+    );
+    return (response.data?.["data"]?.length || 0) > 0;
+  } catch (error) {
+    console.error("Duplicate contact check failed:", error);
+    return false;
+  }
+>>>>>>> production
 };

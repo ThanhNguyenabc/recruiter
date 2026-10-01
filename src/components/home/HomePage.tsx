@@ -20,18 +20,18 @@ const HomePage = () => {
               type="h1"
               className="heading-2 whitespace-pre-line md:heading-1"
             >
-              {`JOBS FOR REAL PEOPLE\n—NOT ROBOTS`}
+              {`GTM HIRING FOR SAAS COMPANIES`}
             </Text>
             <HomeActions />
           </Flex>
-          <Flex className="justify-center md:justify-end">
+          <Flex className="justify-center md:justify-end drop-shadow-lg shadow-md rounded-2xl overflow-hidden">
             <Image
               priority
               alt="banner-image"
               src={HomeBanner}
               width={500}
               height={500}
-              className=" object-contain"
+              className=" object-cover "
             />
           </Flex>
         </Flex>

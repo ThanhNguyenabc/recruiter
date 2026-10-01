@@ -8,4 +8,5 @@ export type Job = {
   Slug: string;
   Description?: string;
   JobDescription?: string;
+  WorkingArrangement?: string;
 };

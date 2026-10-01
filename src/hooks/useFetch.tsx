@@ -27,33 +27,35 @@ const useFetch = (url: string, type: "POST" | "GET") => {
       setData({ ...data, isLoading: true });
       const res = await fetch(url, {
         method: type,
-        body: type === "POST" ? JSON.stringify(requestData) : null,
+        body:
+          type === "POST"
+            ? requestData instanceof FormData
+              ? requestData
+              : JSON.stringify(requestData)
+            : null,
       });
 
       const responseData = await res.json();
-      switch (res.status) {
-        case 200:
-          setData({
-            error: null,
-            pRequestData: requestData,
-            data: responseData,
-            isLoading: false,
-          });
-          return;
-        case 500:
-          setData({
-            error: "Error",
-            data: null,
-            pRequestData: null,
-            isLoading: false,
-          });
-          return;
+      if (res.ok) {
+        setData({
+          error: null,
+          pRequestData: requestData,
+          data: responseData,
+          isLoading: false,
+        });
+      } else {
+        setData({
+          error: responseData.error || "Something went wrong",
+          data: null,
+          pRequestData: null,
+          isLoading: false,
+        });
       }
     } catch {
       setData({
         data: null,
         pRequestData: null,
-        error: "Error",
+        error: "Network error",
         isLoading: false,
       });
     }

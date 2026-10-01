@@ -1,6 +1,4 @@
-
-
-import { submitJobContact } from "@/api/job.api";
+import { isDuplicateJobApplication, submitJobContact } from "@/api/job.api";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -10,10 +8,22 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Data is missing" }, { status: 403 });
     }
 
+    const email = data["email"] || "";
+    const phone = data["phone"] || "";
+
+    const isDuplicate = await isDuplicateJobApplication(email, phone);
+
+    if (isDuplicate) {
+      return NextResponse.json(
+        { error: "You have already submitted an application with this email or phone number." },
+        { status: 409 }
+      );
+    }
+
     const requestData = {
       Name: data["name"] || "",
-      Email: data["email"] || "",
-      Phone: data["phone"] || "",
+      Email: email,
+      Phone: phone,
       Message: data["message"] || "",
     };
 
@@ -24,7 +34,7 @@ export async function POST(request: Request) {
     console.log(error);
   }
   return NextResponse.json(
-    { error: "Something was happended" },
+    { error: "Something went wrong" },
     { status: 500 }
   );
 }

@@ -1,10 +1,8 @@
-import Button from "@/components/_common/button";
+import ContactButton from "@/components/_common/ContactButton";
 import Card from "@/components/_common/card";
 import Flex from "@/components/_common/flex";
 import Hero from "@/components/_common/hero";
 import Text from "@/components/_common/text";
-import { AppRoutes } from "@/utils/routes";
-import Link from "next/link";
 import React from "react";
 
 const HOW_WORKS = [
@@ -63,9 +61,7 @@ const HowShouldWork = () => {
           {`Don't take the gamble with a wrong hire. We take the guesswork out of
           recruiting and finding ready candidates to make an impact.`}
         </Text>
-        <Link href={AppRoutes.CONTACT}>
-          <Button color="primary">Contact us</Button>
-        </Link>
+        <ContactButton />
       </Flex>
     </Hero>
   );

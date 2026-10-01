@@ -40,3 +40,4 @@ package-lock.json
 .yarn
 yarn.lock
 .env
+bun.lock

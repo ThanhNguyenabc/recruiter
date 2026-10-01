@@ -5,22 +5,27 @@ import Image from "next/image";
 import Text from "../_common/text";
 import Button from "../_common/button";
 import { Job } from "@/models/job";
-import Link from "next/link";
 import { AppRoutes } from "@/utils/routes";
+import { useRouter } from "next/navigation";
 
 const JobItem = (job: Job) => {
   const { JobTitle, JobType, CompanyLogo, Location, Salary, Slug } = job;
-
+  const router = useRouter();
+  const gotoJobDetail = () => {
+    router.push(AppRoutes.JOB_DETAIL.replace(":slug", Slug));
+  };
   return (
     <Flex className="flex-col gap-4 p-4 md:p-8 w-full bg-white rounded-[20px] border border-[#DBD7CA]">
       <Flex className=" justify-between">
-        <Image
-          width={64}
-          quality={100}
-          height={64}
-          alt="company-logo"
-          src={CompanyLogo || "/images/mc-donal.png"}
-        />
+        {CompanyLogo && (
+          <Image
+            width={64}
+            quality={100}
+            height={64}
+            alt="company-logo"
+            src={CompanyLogo}
+          />
+        )}
         <Chip
           className=" bg-success h-6 rounded-md text-primary"
           classNames={{
@@ -42,11 +47,13 @@ const JobItem = (job: Job) => {
         </Flex>
       </Flex>
 
-      <Link href={`${AppRoutes.JOB_DETAIL.replace(":slug", Slug)}`}>
-        <Button className="w-fit md:h-12" variant="bordered">
-          Learn More
-        </Button>
-      </Link>
+      <Button
+        className="w-fit md:h-12"
+        variant="bordered"
+        onPress={gotoJobDetail}
+      >
+        Learn More
+      </Button>
     </Flex>
   );
 };
