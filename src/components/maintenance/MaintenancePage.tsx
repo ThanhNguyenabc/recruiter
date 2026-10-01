@@ -15,15 +15,20 @@ import { useToast } from "@/components/_common/toast/Toast";
 import useFetch from "@/hooks/useFetch";
 import { EMAIL, PHONE, SUCCESS_MESSAGE } from "@/utils/constants";
 
-// US phone regex: (555) 123-4567 or 555-123-4567 or +1 555 123 4567 etc.
+// US phone regex: (555) 123-4567
 const US_PHONE_REGEX = /^\(\d{3}\) \d{3}-\d{4}$/;
+
+// Explicit email pattern: local@domain.tld
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
 
 const schema = z.object({
   name: z
     .string()
     .trim()
     .min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().trim().regex(EMAIL_REGEX, {
+    message: "Enter a valid email address (e.g. name@domain.com)",
+  }),
   phone: z.string().regex(US_PHONE_REGEX, {
     message: "Enter a valid phone number: (555) 123-4567",
   }),
@@ -44,7 +49,7 @@ const MaintenancePage = () => {
     setValue,
     watch,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(schema), mode: "onChange" });
 
   useEffect(() => {
     if (data && !isLoading) {
