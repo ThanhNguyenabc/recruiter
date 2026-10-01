@@ -19,10 +19,10 @@ export async function POST(request: Request) {
     }
 
     const success = await submitMaintenanceContact({
-      Name: name,
-      Email: email,
-      Phone: phone,
-      Message: message,
+      name,
+      email,
+      phone,
+      message,
     });
 
     if (success) {

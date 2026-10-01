@@ -55,10 +55,10 @@ export const submitContact = async (data: {
 };
 
 export const submitMaintenanceContact = async (data: {
-  Name: string;
-  Email: string;
-  Phone: string;
-  Message: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
 }): Promise<boolean> => {
   try {
     const response = await AxiosClient.post(`/maintenance-contacts`, {

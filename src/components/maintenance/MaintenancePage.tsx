@@ -6,6 +6,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
 import Image from "next/image";
+import { ChangeEvent } from "react";
 
 import Flex from "@/components/_common/flex";
 import Text from "@/components/_common/text";
@@ -14,19 +15,19 @@ import { useToast } from "@/components/_common/toast/Toast";
 import useFetch from "@/hooks/useFetch";
 import { EMAIL, PHONE, SUCCESS_MESSAGE } from "@/utils/constants";
 
+// US phone regex: (555) 123-4567 or 555-123-4567 or +1 555 123 4567 etc.
+const US_PHONE_REGEX = /^\(\d{3}\) \d{3}-\d{4}$/;
+
 const schema = z.object({
   name: z
     .string()
     .trim()
     .min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email("Please enter a valid email address"),
-  phone: z
-    .string()
-    .min(7, { message: "Phone number must be at least 7 digits" }),
-  inquiry: z
-    .string()
-    .trim()
-    .min(10, { message: "Inquiry must be at least 10 characters" }),
+  phone: z.string().regex(US_PHONE_REGEX, {
+    message: "Enter a valid phone number: (555) 123-4567",
+  }),
+  inquiry: z.string().trim(),
 });
 
 const MaintenancePage = () => {
@@ -40,6 +41,8 @@ const MaintenancePage = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
 
@@ -67,6 +70,20 @@ const MaintenancePage = () => {
       isInvalid: true,
       errorMessage: (errors[field]?.message as string) ?? "",
     };
+  };
+
+  // Formats digits as (555) 123-4567 on every keystroke
+  const formatUSPhone = (e: ChangeEvent<HTMLInputElement>) => {
+    const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+    let formatted = digits;
+    if (digits.length > 6) {
+      formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+    } else if (digits.length > 3) {
+      formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    } else if (digits.length > 0) {
+      formatted = `(${digits}`;
+    }
+    setValue("phone", formatted, { shouldValidate: true, shouldDirty: true });
   };
 
   return (
@@ -129,6 +146,8 @@ const MaintenancePage = () => {
             placeholder="(555) 000-0000"
             label="Phone"
             labelPlacement="outside"
+            value={watch("phone") ?? ""}
+            onChange={formatUSPhone}
           />
         </Flex>
 
