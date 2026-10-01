@@ -53,3 +53,23 @@ export const submitContact = async (data: {
   }
   return false;
 };
+
+export const submitMaintenanceContact = async (data: {
+  Name: string;
+  Email: string;
+  Phone: string;
+  Message: string;
+}): Promise<boolean> => {
+  try {
+    const response = await AxiosClient.post(`/maintenance-contacts`, {
+      data: data,
+    });
+
+    if (response.data["data"]) {
+      return true;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  return false;
+};
