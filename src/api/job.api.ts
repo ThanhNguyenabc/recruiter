@@ -54,7 +54,6 @@ export const submitContact = async (data: {
   return false;
 };
 
-<<<<<<< HEAD
 export const submitMaintenanceContact = async (data: {
   Name: string;
   Email: string;
@@ -73,7 +72,7 @@ export const submitMaintenanceContact = async (data: {
     console.log(error);
   }
   return false;
-=======
+}
 export const isDuplicateJobApplication = async (
   email: string,
   phone: string,
@@ -102,5 +101,4 @@ export const isDuplicateContact = async (
     console.error("Duplicate contact check failed:", error);
     return false;
   }
->>>>>>> production
 };

@@ -1,5 +1,4 @@
 import Footer from "@/components/footer";
-import Header from "@/components/header";
 import { NextUIProvider } from "@nextui-org/react";
 import React, { PropsWithChildren } from "react";
 
